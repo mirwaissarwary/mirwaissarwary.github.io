@@ -1,5 +1,5 @@
-/* Portfolio Style Sheet - 2025 Matrix Refreshed Nov 2025 */
-/* Keeping the soul of the original, making it clean */
+/* Portfolio Style Sheet - Final Senior Refactor Nov 20 2025 */
+/* All inline styles moved here – clean, maintainable, 2025-ready */
 
 body {
     margin: 0;
@@ -7,20 +7,15 @@ body {
     background: #000;
     color: #0f0;
     font-family: 'Courier New', Courier, monospace;
-}
-
-.Background {
-    background: #000;
     min-height: 100vh;
 }
 
-/* Matrix waterfall green - brighter, fresher */
 .glow {
     color: #0cff0c;
     text-shadow: 0 0 10px #0cff0c, 0 0 20px #0cff0c, 0 0 30px #0cff0c;
 }
 
-/* Navbar - cleaner hover */
+/* Navbar */
 .Navbar {
     background: rgba(0,0,0,0.8);
     overflow: hidden;
@@ -46,7 +41,7 @@ body {
     color: #000;
 }
 
-/* Hero video + text */
+/* Hero */
 #Main_Video {
     position: fixed;
     right: 0;
@@ -65,32 +60,42 @@ body {
     width: 90%;
 }
 
-/* Content cards - modern glass morphism */
-.Column_1, .Column_2 {
-    padding: 30px;
-}
-
-/* About section - readable light card */
-.Column_1[style*="overflow-y"] {
+/* About Card – light & readable */
+.about-card {
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     color: #000 !important;
     box-shadow: 0 8px 32px rgba(0,255,0,0.3);
+    padding: 30px;
+    height: 80vh;
+    overflow-y: scroll;
+    padding-right: 20px;
 }
 
-.Column_1 h1 {
-    color: #000;
-    text-align: center;
+.about-card h1 { color: #000; text-align: center; }
+.about-card a { color: #0a0; font-weight: bold; }
+
+/* Rows & Columns */
+.Row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-top: 60px;
 }
 
-/* Project cards in hero or anywhere */
+.Column_1, .Column_2 {
+    flex: 50%;
+    padding: 20px;
+}
+
+/* Projects section (the one we added) */
 #Projects .center > div {
     background: rgba(0,15,0,0.8);
     border: 1px solid #0f0;
     border-radius: 15px;
-    padding: 20px;
-    margin: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 25px;
+    margin: 20px;
+    transition: all 0.3s;
 }
 
 #Projects .center > div:hover {
@@ -98,39 +103,21 @@ body {
     box-shadow: 0 0 30px #0f0;
 }
 
-/* General links */
-a {
-    color: #0f0;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #0cff0c;
-    text-decoration: underline;
-}
-
-/* Slideshow improvements */
-.mySlides {
-    box-shadow: 0 0 20px #0f0;
-}
-
-.dot {
-    background: #0f0;
-}
+/* Slideshow */
+.mySlides { box-shadow: 0 0 20px #0f0; }
+.dot { background: #0f0; }
 
 /* Footer */
 footer {
     background: rgba(0,0,0,0.9);
-    padding: 20px;
-    margin-top: 50px;
+    padding: 30px;
+    margin-top: 80px;
+    text-align: center;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .Video_Text p {
-        font-size: 1.2em !important;
-    }
-    .Column_1 {
-        height: 70vh !important;
-    }
+    .Column_1, .Column_2 { flex: 100%; }
+    .Video_Text p { font-size: 1.2em !important; }
+    .about-card { height: 70vh; }
 }
