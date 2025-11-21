@@ -1,0 +1,107 @@
+/* Portfolio Style Sheet - Final Senior Refactor Nov 20 2025 */
+/* All inline styles moved here – clean, maintainable, 2025-ready */
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    min-height: 100vh;
+}
+.glow {
+    color: #0cff0c;
+    text-shadow: 0 0 10px #0cff0c, 0 0 20px #0cff0c, 0 0 30px #0cff0c;
+}
+/* Navbar */
+.Navbar {
+    background: rgba(0,0,0,0.8);
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #0f0;
+}
+.Navbar a {
+    float: left;
+    display: block;
+    color: #0f0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.Navbar a:hover {
+    background: #0f0;
+    color: #000;
+}
+/* Hero */
+#Main_Video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+}
+.Video_Text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}
+/* About Card – light & readable */
+.about-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    color: #000 !important;
+    box-shadow: 0 8px 32px rgba(0,255,0,0.3);
+    padding: 30px;
+    height: 80vh;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
+.about-card h1 { color: #000; text-align: center; }
+.about-card a { color: #0a0; font-weight: bold; }
+/* Rows & Columns */
+.Row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    margin-top: 60px;
+}
+.Column_1, .Column_2 {
+    flex: 50%;
+    padding: 20px;
+}
+/* Projects section (the one we added) */
+#Projects .center > div {
+    background: rgba(0,15,0,0.8);
+    border: 1px solid #0f0;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px;
+    transition: all 0.3s;
+}
+#Projects .center > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px #0f0;
+}
+/* Slideshow */
+.mySlides { box-shadow: 0 0 20px #0f0; }
+.dot { background: #0f0; }
+/* Footer */
+footer {
+    background: rgba(0,0,0,0.9);
+    padding: 30px;
+    margin-top: 80px;
+    text-align: center;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .Column_1, .Column_2 { flex: 100%; }
+    .Video_Text p { font-size: 1.2em !important; }
+    .about-card { height: 70vh; }
+}
