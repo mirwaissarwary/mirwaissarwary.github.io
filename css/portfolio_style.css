@@ -170,7 +170,7 @@ img:hover {
 footer {
     padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
     background-image: linear-gradient(to right,white,blue,white, blue, rgb(19, 19, 51));
-    color: white;
+    color: green;
 }
 
 /*====================
@@ -214,6 +214,22 @@ Styling text options
     color: white;
     text-shadow: 0px 0px 40px #39FF14, 3px 3px 45px #27ff01;
     padding-bottom: 0;
+}
+/* Senior-level navbar title – clean, professional, Matrix vibe */
+.navbar-title {
+    float: right;
+    padding: 14px 16px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 0.4vw;
+    color: white;
+    text-shadow: 0 0 20px #0f0;
+}
+.name {
+    animation: blink 1s steps(5, start) infinite;
+}
+@keyframes blink {
+    to { visibility: hidden; }
 }
 .dash {
     font: italic bold Georgia, serif;
