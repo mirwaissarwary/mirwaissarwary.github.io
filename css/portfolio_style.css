@@ -488,7 +488,7 @@ End of Styling text options
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 1.6%;
     height: auto; /* Allows card to grow with content */
-    min-height: 350px; /* Keeps original minimum for small content */
+    min-height: 150px; /* Keeps original minimum for small content */
     background-image: linear-gradient(to right, rgb(207, 175, 175),white,rgb(207, 175, 175));
 }
 
@@ -497,7 +497,7 @@ End of Styling text options
     width: 50%;
     padding: 1.6%;
     height: auto; /* Allows column to grow with content */
-    min-height: 350px;
+    min-height: 150px;
     background-image: linear-gradient(to right, rgb(8, 47, 31),rgb(0, 255, 55),white, blue, rgb(8, 47, 31));
 }
 
