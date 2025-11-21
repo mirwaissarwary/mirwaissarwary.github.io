@@ -129,6 +129,15 @@ END of GENERAL STYLING
 /*======================
 Styling text options 
 ========================*/
+.about-scroll {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px; /* space for scrollbar */
+}
+@media (max-width: 768px) {
+    .about-scroll { max-height: 60vh; }
+}
+
 /*glow effect on text*/
 .glow {
     opacity: 1;
