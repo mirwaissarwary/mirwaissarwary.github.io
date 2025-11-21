@@ -124,11 +124,13 @@
     </div>
 
 <!-- About section – professional summary and credentials -->
-        <div class="Row" id="About">
-            <div class="Column_2">
-                <img class="Column_Images" src="./images/bg_binary.png" alt="Binary background">
-            </div>
-            <div class="Column_1 about-card">
+       <!-- About section – perfect 50/50 columns, text column matches image width exactly -->
+    <div class="Row" id="About" style="display: flex; margin-top: 60px;">
+        <div style="flex: 1; padding: 20px;">
+            <img class="Column_Images" src="./images/bg_binary.png" alt="Binary background">
+        </div>
+        <div style="flex: 1; padding: 20px;">
+            <div class="about-card">
                 <h1>About</h1>
                 <div class="about-scroll">
                     <p class="lead">
@@ -152,6 +154,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <!-- Featured Projects place holder section – highlights current work -->
   
     <!-- GitHub section – central repository link -->
