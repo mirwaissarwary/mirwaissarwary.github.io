@@ -475,10 +475,10 @@ End of Styling text options
     float: left;
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 1.6%;
-    height: 350px; /* This sets the height of the column to 450px -  this may need to be adjusted depending on the text you enter */
+    height: auto; /* Allows card to grow with content */
+    min-height: 350px; /* Keeps original minimum for small content*/
    /* background-color: ivory; /* Sets the background color of the columns with class Column_1 */
-   background-image: linear-gradient(to right, rgb(207, 175, 175),white,rgb(207, 175, 175));
-   
+   background-image: linear-gradient(to right, rgb(207, 175, 175),white,rgb(207, 175, 175)); 
 }
 
 .Column_2 {
