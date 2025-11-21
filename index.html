@@ -58,9 +58,9 @@
     <div id="Slideshow">
         <div id="Slideshow_Background">
             <div id="Slideshow_Container">
-                <!-- Slide 1–11: original certification and technology images -->
+                <!-- Original 11 slides – fully preserved -->
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/profilePic_1.png" alt="Profile photo">
+                    <img class="Slideshow_Images" src="./images/profilePic_1.png" alt="profile pic">
                     <div class="text"><a class="white-text contact" onclick="openForm()">Contact me here</a></div>
                 </div>
                 <div class="mySlides fade">
@@ -158,4 +158,54 @@
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px;">
                 <div>
                     <h3 style="color: #0f0;">TheatreCMS (C# / ASP.NET MVC)</h3>
-                    <p style="color: white;">Full theater management system • Actively migrating to .NET
+                    <p style="color: white;">Full theater management system • Actively migrating to .NET 8 Minimal APIs (2025)</p>
+                    <p><a href="https://github.com/mirwaissarwary/TheatreCMS" style="color: #0f0;">GitHub</a></p>
+                </div>
+                <div>
+                    <h3 style="color: #0f0;">Secure Todo API (.NET 8 Minimal APIs)</h3>
+                    <p style="color: white;">JWT auth, EF Core + SQLite, Swagger UI<br>Built live November 19–20 2025</p>
+                    <p><a href="#" style="color: #0f0;">GitHub (coming tonight)</a> | <a href="#" style="color: #0f0;">Live API (coming)</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GitHub section – central repository link -->
+    <div class="Row" id="GitHub">
+        <div class="Column_1">
+            <h1>GitHub</h1>
+            <p>View coding projects here:<br>
+                <p class="center"><a href="https://github.com/mirwaissarwary" target="_blank">mirwaissarwary</a></p>
+            </p>
+        </div>
+        <div class="Column_2">
+            <a href="https://github.com/mirwaissarwary" target="_blank"><img class="Column_Images" src="./images/gitHubLogo.png" alt="GitHub Logo"></a>
+        </div>
+    </div>
+
+    <!-- Contact form – Formspree integration -->
+    <div id="Contact">
+        <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+        <div class="form-popup" id="myForm">
+            <form action="https://formspree.io/f/mdoblwjg" method="POST" class="form-container">
+                <h1>Contact</h1>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Name" name="name" required>
+                <label for="phone"><b>Phone</b></label>
+                <input type="text" placeholder="Phone" name="phone" required>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Email" name="email" required>
+                <label for="message"><b>Message</b></label>
+                <input type="text" placeholder="Message" name="message" required>
+                <button type="submit" class="btn">SUBMIT</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer – credit and navigation -->
+    <footer>
+        <p class="center">Biomedical Devices Engineer and Software Developer<br><a href="#About">Mirwais Sarwary</a></p>
+    </footer>
+</body>
+</html>
