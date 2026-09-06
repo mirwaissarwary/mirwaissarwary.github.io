@@ -24,49 +24,61 @@ html {
     object-fit: cover;
 }
 
-/* Glass card – transparent dark glass, larger readable text */
+/* Glass card – readable type (not vw-scaled body letter-spacing) */
 .about-card {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.72);
     backdrop-filter: blur(8px);
-    padding: 40px;
+    padding: 36px 40px;
     color: #fff !important;
     height: 100%;
     box-sizing: border-box;
+    letter-spacing: normal;
 }
 .about-card h1 {
     color: #0f0;
-    font-size: 3.2em;
+    font-size: 1.75rem;
+    letter-spacing: 0.06em;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
 }
-.about-card p {
-    font-size: 1.6em;
-    line-height: 1.7;
+.about-card p,
+.about-card .lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    letter-spacing: normal;
+    margin: 0 0 1rem;
+}
+.about-card .lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
 }
 .about-card a {
     color: #0f0;
     font-weight: bold;
 }
 .about-scroll {
-    max-height: 75vh;
-    overflow-y: auto;
-    padding-right: 15px;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
 }
-.about-scroll::-webkit-scrollbar {
-    width: 10px;
+#About {
+    letter-spacing: normal;
 }
-.about-scroll::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.1);
-    border-radius: 10px;
-}
-.about-scroll::-webkit-scrollbar-thumb {
-    background: #0f0;
-    border-radius: 10px;
+#About .Column_Images,
+#About .about-col img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
 }
 @media (max-width: 768px) {
     .about-row { flex-direction: column; }
-    .about-scroll { max-height: 60vh; }
-    .about-card p { font-size: 1.8em; }
+    .about-scroll { max-height: none; overflow: visible; }
+    .about-card { padding: 24px 20px; }
+    .about-card h1 { font-size: 1.5rem; }
+    .about-card p, .about-card .lead { font-size: 1rem; }
+    #About .Column_Images, #About .about-col img { min-height: 260px; }
 }
 
 /* Body Section */
@@ -332,7 +344,7 @@ End of Styling text options
     bottom: 0; /* This ensures no space between the bottom of the video and the bottom of the page */
     min-width: 100%; /* This ensures the video is displayed across the full width of the page */
     z-index: -1; /* This places the video behind the other elements on the page */
-    opacity: .7;
+    opacity: .45; /* calmer — less visual noise behind text */
 }
 
 /* Texts over the video */
