@@ -1,10 +1,14 @@
 // These functions open and close the contact form
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    var form = document.getElementById("myForm");
+    form.style.display = "block";
+    form.classList.add("is-open");
 }
 
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    var form = document.getElementById("myForm");
+    form.style.display = "none";
+    form.classList.remove("is-open");
 }
 
 // This function displays the first image in the slideshow when the page loads
