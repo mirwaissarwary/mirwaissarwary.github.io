@@ -754,3 +754,78 @@ Media Query Section
 /*********************************
 End of Media Query Section
 **********************************/
+
+/*===== Selected projects (Sep 2026 brand update) =====*/
+.projects-section {
+    max-width: 1100px;
+    margin: 60px auto 40px;
+    padding: 0 24px 40px;
+}
+.projects-section h1 {
+    color: #0f0;
+    margin-bottom: 8px;
+}
+.projects-intro {
+    color: #ccc;
+    font-size: 1.1rem;
+    letter-spacing: normal;
+    margin-bottom: 28px;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+.project-card {
+    display: block;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0f0;
+    border-radius: 8px;
+    padding: 20px 18px;
+    color: #fff;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(0, 255, 0, 0.35);
+}
+.project-card h2 {
+    color: #0f0;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    margin: 0 0 10px;
+    text-transform: none;
+}
+.project-card p {
+    color: #ddd;
+    font-size: 0.95rem;
+    letter-spacing: normal;
+    line-height: 1.45;
+    margin: 0;
+}
+.hero-links a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero-links a:hover {
+    text-decoration: underline;
+}
+.form-direct {
+    font-size: 0.9rem;
+    letter-spacing: normal;
+    margin: 0 0 12px;
+}
+.form-direct a { color: #0f0; }
+.optional {
+    font-weight: normal;
+    font-size: 0.85em;
+    color: #aaa;
+}
+@media (max-width: 768px) {
+    .Navbar a { font-size: 0.85rem; }
+    .Video_Text .glow { font-size: 2.4em !important; }
+    .about-row { flex-direction: column !important; }
+    .about-scroll { max-height: none; overflow: visible; }
+}
