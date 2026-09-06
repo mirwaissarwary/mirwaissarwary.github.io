@@ -849,3 +849,172 @@ End of Media Query Section
     .about-row { flex-direction: column !important; }
     .about-scroll { max-height: none; overflow: visible; }
 }
+
+/*===== Mobile nav + contact UX (Sep 2026) =====*/
+html {
+    scroll-padding-top: 72px; /* sticky navbar offset for in-page anchors */
+}
+
+.Navbar {
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: visible;
+}
+
+.Navbar a {
+    float: none;
+}
+
+.navbar-title {
+    margin-left: auto;
+}
+
+.form-popup {
+    z-index: 200;
+}
+
+.form-container label {
+    display: block;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    color: #111;
+}
+
+.form-container input[type=text],
+.form-container input[type=email],
+.form-container input[type=tel],
+.form-container textarea {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin: 0.35rem 0 0.55rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-family: Helvetica, Arial, sans-serif;
+    resize: vertical;
+}
+
+.form-container h1 {
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    margin: 0.2rem 0 0.6rem;
+    color: #111;
+}
+
+.form-container .btn,
+.form-container .cancel {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+}
+
+.form-direct {
+    color: #333;
+    word-break: break-word;
+}
+.form-direct a { color: #0a7a0a; }
+
+@media screen and (max-width: 900px) {
+    html {
+        scroll-padding-top: 110px;
+    }
+
+    .Navbar {
+        padding: 4px 6px 6px;
+    }
+
+    .Navbar a {
+        width: auto !important;
+        flex: 0 0 auto;
+        font-size: 0.8rem !important;
+        padding: 0.45rem 0.55rem !important;
+        text-shadow: none;
+        letter-spacing: normal;
+    }
+
+    .navbar-title {
+        display: none; /* free space; reduce wrap on phones */
+    }
+
+    .Pop_Up_Button {
+        width: auto;
+        min-width: 7.5rem;
+        right: 12px;
+        bottom: 12px;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+    }
+
+    .form-popup {
+        inset: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.55);
+        overflow-y: auto;
+    }
+
+    .form-popup.is-open,
+    .form-popup[style*="block"] {
+        display: flex !important;
+    }
+
+    .form-container {
+        max-width: 100%;
+        width: min(420px, 100%);
+        margin: 0 auto;
+        padding: 1.1rem 1rem 1.2rem;
+        border-radius: 12px;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+    }
+
+    #About,
+    #Projects,
+    #GitHub,
+    #Skills,
+    #Contact,
+    .projects-section {
+        scroll-margin-top: 110px;
+    }
+
+    .projects-intro {
+        text-shadow: 0 1px 2px #000;
+        color: #eee;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    .form-popup {
+        bottom: 16px;
+        right: 16px;
+        left: auto;
+        top: auto;
+    }
+    .form-container {
+        max-width: 380px;
+        width: 380px;
+        padding: 1.1rem 1.15rem;
+    }
+    .Pop_Up_Button {
+        width: auto;
+        min-width: 8rem;
+        right: 18px;
+        bottom: 18px;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        padding: 0.7rem 1rem;
+    }
+}
