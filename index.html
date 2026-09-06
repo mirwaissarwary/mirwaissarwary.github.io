@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Portfolio for Mirwais Sarwary – Full-Stack C#/.NET Developer -->
-    <!-- Refactored November 20, 2025: inline styles removed, CSS separation of concerns, responsive layout -->
+    <!-- Portfolio for Mirwais Sarwary – Biomedical / medical-device engineer who also codes -->
+    <!-- Brand update Sep 2026: devices + robotics-adjacent + software (not a software-career reboot) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mirwais Sarwary | Full-Stack C#/.NET Developer</title>
+    <meta name="description" content="Mirwais Sarwary — biomedical / medical-device engineer. R&D, robotics-adjacent systems, and practical software (C#/.NET, Python).">
+    <title>Mirwais Sarwary | Biomedical / Medical Device Engineer</title>
     <link rel="stylesheet" href="./css/portfolio_style.css">
     <script src="./js/portfolio_JS.js" defer></script>
 </head>
 <body class="Background">
 
-    <!-- Fixed navigation bar with anchor links -->
     <div class="Navbar">
         <a href="#Home">Home</a>
-        <a href="#Slideshow">Slideshow</a>
+        <a href="#Skills">Skills</a>
         <a href="#About">About</a>
         <a href="#Projects">Projects</a>
         <a href="#GitHub">GitHub</a>
+        <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a>
         <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
        <div class="navbar-title">
             <span class="arrow">></span><span class="name">Mirwais_</span>
         </div>
     </div>
 
-    <!-- Hero section – full-screen Matrix video background -->
     <div id="Home">
         <video autoplay muted loop id="Main_Video">
             <source src="./Videos/Bkg_Matrix2.mp4" type="video/mp4">
@@ -32,79 +32,83 @@
         </video>
     </div>
 
-    <!-- Hero text overlay – intentional inline styles for precise sizing -->
     <div class="Video_Text">
-        <p class="glow center" style="font-size: 5.0em; margin-bottom: 0; line-height: 1;">Mirwais Sarwary</p>
+        <p class="glow center" style="font-size: 4.2em; margin-bottom: 0; line-height: 1;">Mirwais Sarwary</p>
         <strong>
-            <p class="center" style="font-size: 2.6em; color: #0f0; text-shadow: 0 0 15px #0f0; margin: 15px 0 10px;">
-                Full-Stack C#/.NET & Python Developer
+            <p class="center" style="font-size: 2.2em; color: #0f0; text-shadow: 0 0 15px #0f0; margin: 15px 0 10px;">
+                Biomedical / Medical Device Engineer
             </p>
-            <p class="center" style="font-size: 1.7em; color: white; margin: 20px 0 30px;">
-                20+ Years Delivering FDA-Regulated Medical Devices & Surgical Robotics<br>
-                → Returning Strong to Software Engineering (November 2025)
+            <p class="center" style="font-size: 1.5em; color: white; margin: 16px 0 24px;">
+                R&amp;D · robotics-adjacent systems · software<br>
+                20+ years delivering FDA-regulated medical devices &amp; surgical robotics
             </p>
-            <br>
-            <div class="center" style="font-size: 1.55em; color: #0f9; line-height: 1.6;">
+            <div class="center" style="font-size: 1.35em; color: #0f9; line-height: 1.6;">
                 <q>Scientists study the world as it is;<br>engineers create the world that has never been.</q>
             </div>
-            <p class="center" style="font-size: 1.55em; color: #aaa; margin: 10px 0 20px;">— Theodore von Kármán</p>
-            <p class="center" style="font-size: 1.55em; color: white;">
-                Welcome — let's build reliable, life-changing solutions together.
+            <p class="center" style="font-size: 1.35em; color: #aaa; margin: 10px 0 20px;">— Theodore von Kármán</p>
+            <p class="center" style="font-size: 1.35em; color: white;">
+                Engineer by nature — building reliable devices and the software around them.
+            </p>
+            <p class="center hero-links" style="font-size: 1.2em; margin-top: 28px;">
+                <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a>
+                &nbsp;·&nbsp;
+                <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">GitHub</a>
+                &nbsp;·&nbsp;
+                <a href="mailto:mirwais.sarwary.mse@gmail.com">Email</a>
             </p>
         </strong>
     </div>
 
-    <!-- Slideshow section – displays certification badges and skills -->
-    <div id="Slideshow">
+    <!-- Skills – device + engineering + coding (TTA slides kept; captions reframed) -->
+    <div id="Skills">
         <div id="Slideshow_Background">
             <div id="Slideshow_Container">
-                <!-- Original 11 slides – fully preserved -->
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/profilePic_1.png" alt="profile pic">
-                    <div class="text"><a class="white-text contact" onclick="openForm()">Contact me here</a></div>
+                    <img class="Slideshow_Images" src="./images/profilePic_1.png" alt="Mirwais Sarwary">
+                    <div class="text"><a class="white-text contact" onclick="openForm()">Contact me</a></div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_1.png" alt="Computer And Tec Logo">
-                    <div class="text">Firm foundation in technology fundamentals</div>
+                    <img class="Slideshow_Images" src="./images/TTA_1.png" alt="Technology fundamentals">
+                    <div class="text">Solid technical fundamentals for device and software work</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_3.png" alt="Version Control">
-                    <div class="text">Git, GitHub, and Azure DevOps</div>
+                    <img class="Slideshow_Images" src="./images/TTA_3.png" alt="Version control">
+                    <div class="text">Git, GitHub, and Azure DevOps for team delivery</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_4.png" alt="HTML and CSS">
-                    <div class="text">Understanding web development</div>
+                    <img class="Slideshow_Images" src="./images/TTA_4.png" alt="Web development">
+                    <div class="text">Web interfaces for tools, portals, and device-adjacent apps</div>
                 </div>
                 <div class="mySlides fade">
                     <img class="Slideshow_Images" src="./images/TTA_5.png" alt="JavaScript">
-                    <div class="text">Versatile popular programming language</div>
+                    <div class="text">JavaScript for interactive front ends</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_6.png" alt="Database and SQL">
-                    <div class="text">Database fundamentals and how to create databases</div>
+                    <img class="Slideshow_Images" src="./images/TTA_6.png" alt="Databases and SQL">
+                    <div class="text">Databases and SQL for structured product data</div>
                 </div>
                 <div class="mySlides fade">
                     <img class="Slideshow_Images" src="./images/TTA_7.png" alt="Python">
-                    <div class="text">Powerful and robust — capable of a wide range of functions</div>
+                    <div class="text">Python for automation, analysis, and services</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_8.png" alt="Project Management">
-                    <div class="text">Understanding how development projects are run</div>
+                    <img class="Slideshow_Images" src="./images/TTA_8.png" alt="Project delivery">
+                    <div class="text">Agile delivery habits from real project teams</div>
                 </div>
                 <div class="mySlides fade">
                     <img class="Slideshow_Images" src="./images/TTA_9.png" alt="Visual Studio">
-                    <div class="text">Integrated Development Environment from Microsoft</div>
+                    <div class="text">Visual Studio and the Microsoft .NET toolchain</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_10.png" alt="C# dotNet">
-                    <div class="text">One of the most in-demand languages in the software development field</div>
+                    <img class="Slideshow_Images" src="./images/TTA_10.png" alt="C# and .NET">
+                    <div class="text">C# / .NET for APIs, services, and desktop-class apps</div>
                 </div>
                 <div class="mySlides fade">
-                    <img class="Slideshow_Images" src="./images/TTA_11.png" alt="Live Project">
-                    <div class="text">2-week coding projects - real-world development experience</div>
+                    <img class="Slideshow_Images" src="./images/TTA_11.png" alt="Team live projects">
+                    <div class="text">Team live projects — C# MVC and Python/Django</div>
                 </div>
-                <a class="Previous" onclick="plusSlides(-1)">&#10094;P</a>
-                <a class="Next" onclick="plusSlides(1)">N&#10095;</a>
+                <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="Next" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <br>
             <div style="text-align: center">
@@ -123,65 +127,99 @@
         </div>
     </div>
 
-<!-- About section – professional summary and credentials -->
-       <!-- About section – perfect 50/50 columns, text column matches image width exactly -->
-    <div class="Row" id="About" style="display: flex; margin-top: 60px;">
-        <div style="flex: 1; padding: 20px;">
-            <img class="Column_Images" src="./images/bg_binary.png" alt="Binary background">
+    <div class="Row about-row" id="About">
+        <div class="about-col">
+            <img class="Column_Images" src="./images/bg_binary.png" alt="">
         </div>
-        <div style="flex: 1; padding: 20px;">
+        <div class="about-col">
             <div class="about-card">
                 <h1>About</h1>
                 <div class="about-scroll">
                     <p class="lead">
-                        Senior Biomedical Engineer with 20+ years delivering FDA-regulated medical devices and surgical robotics systems (Class I/II) — now returning strong to full-stack software development with a focus on C#/.NET 8.
+                        Biomedical / medical-device engineer with 20+ years across FDA-regulated products and surgical robotics — who also designs and ships practical software (C# / .NET, Python).
                     </p>
                     <p>
-                        • Master of Science, Biomedical Engineering (Devices) – San Jose State University<br>
-                        • Bachelor of Science, Biological & Mechanical Systems Engineering – UC Davis<br>
-                        • Fundamentals of Engineering (EIT) | Design Control & ISO 13485 Certification<br>
-                        • Full-Stack Software Developer Certification – The Tech Academy (2022)
+                        Currently <strong>RA/QA Manager at OptalMed LLC</strong> (ophthalmic devices), owning quality-system and regulatory readiness work — including the product transition from EU MDD to MDR. I came into this role as an engineer first: it deepens my fluency in how heavily regulated devices actually get designed, verified, and kept on market — knowledge that makes better R&amp;D and stronger future products.
                     </p>
                     <p>
-                        Proven expertise across the entire product lifecycle — concept, rapid prototyping, verification/validation, risk management (FMEA), CAPA, and transfer to manufacturing. Deep experience with SolidWorks, 3D printing, and regulated quality systems.
+                        • M.S., Biomedical Engineering (Devices) – San Jose State University<br>
+                        • B.S., Biological &amp; Mechanical Systems Engineering – UC Davis<br>
+                        • Engineer-in-Training (EIT) | Design Control &amp; ISO 13485<br>
+                        • Full-Stack Software Developer Certificate – The Tech Academy (2022)
                     </p>
                     <p>
-                        Bringing the same rigor and life-improving mindset to software: currently refreshing and shipping modern .NET 8, ASP.NET Core, Entity Framework Core, and Python/Django solutions.
+                        Background spans concept through V&amp;V, risk (FMEA), CAPA, and manufacturing transfer — plus SolidWorks, rapid prototyping, and team delivery. On the software side I build APIs, web apps, and tooling that sit next to devices and automation.
                     </p>
                     <p>
-                        Thrives in collaborative, high-impact environments. Ready to build reliable systems that matter — <a href="#Contact">contact</a>.
+                        Open to collaborations in <strong>robotics-adjacent systems, device R&amp;D, and software</strong> that benefit from both engineering judgment and coding skill.
+                        <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a> ·
+                        <a href="mailto:mirwais.sarwary.mse@gmail.com">Email</a> ·
+                        <a href="#Contact" class="contact" onclick="openForm()">Contact form</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Featured Projects place holder section – highlights current work -->
-  
-    <!-- GitHub section – central repository link -->
-    <div class="Row" id="GitHub">
-        <div class="Column_1">
-            <h1>GitHub</h1>
-            <p>View coding projects here:<br>
-                <p class="center"><a href="https://github.com/mirwaissarwary" target="_blank">mirwaissarwary</a></p>
-            </p>
-        </div>
-        <div class="Column_2">
-            <a href="https://github.com/mirwaissarwary" target="_blank"><img class="Column_Images" src="./images/gitHubLogo.png" alt="GitHub Logo"></a>
+
+    <div id="Projects" class="projects-section">
+        <h1>Selected projects</h1>
+        <p class="projects-intro center">Software I can walk through — device-adjacent habits applied to code.</p>
+        <div class="projects-grid">
+            <a class="project-card" href="https://github.com/mirwaissarwary/SecureTodoApi" target="_blank" rel="noopener">
+                <h2>SecureTodoApi</h2>
+                <p>.NET 8 Minimal API with JWT auth and CRUD — production-style API structure.</p>
+            </a>
+            <a class="project-card" href="https://github.com/mirwaissarwary/TTA-Live_Project-CsharpDotNet" target="_blank" rel="noopener">
+                <h2>Theatre CMS (C# / MVC)</h2>
+                <p>ASP.NET MVC + Entity Framework live team project — content and production workflows.</p>
+            </a>
+            <a class="project-card" href="https://github.com/mirwaissarwary/TTA-Live_Project-Python" target="_blank" rel="noopener">
+                <h2>AppBuilder9000 (Python)</h2>
+                <p>Django live team project — full-stack Python delivery in a sprint setting.</p>
+            </a>
+            <a class="project-card" href="https://github.com/mirwaissarwary/Python-Projects" target="_blank" rel="noopener">
+                <h2>Python-Projects</h2>
+                <p>Selected Python coursework and utilities.</p>
+            </a>
+            <a class="project-card" href="https://github.com/mirwaissarwary/Portfolio" target="_blank" rel="noopener">
+                <h2>Portfolio (source)</h2>
+                <p>This site’s companion repo — HTML/CSS/JS.</p>
+            </a>
+            <a class="project-card" href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">
+                <h2>More on GitHub</h2>
+                <p>Pinned repos and profile README at github.com/mirwaissarwary</p>
+            </a>
         </div>
     </div>
 
-    <!-- Contact form – Formspree integration -->
+    <div class="Row" id="GitHub">
+        <div class="Column_1">
+            <h1>GitHub</h1>
+            <p>Coding work lives here (devices / robotics-adjacent / software vibe):</p>
+            <p class="center"><a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">github.com/mirwaissarwary</a></p>
+            <p class="center">
+                <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a>
+                ·
+                <a href="mailto:mirwais.sarwary.mse@gmail.com">mirwais.sarwary.mse@gmail.com</a>
+            </p>
+        </div>
+        <div class="Column_2">
+            <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener"><img class="Column_Images" src="./images/gitHubLogo.png" alt="GitHub"></a>
+        </div>
+    </div>
+
     <div id="Contact">
         <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
         <div class="form-popup" id="myForm">
             <form action="https://formspree.io/f/mdoblwjg" method="POST" class="form-container">
                 <h1>Contact</h1>
+                <p class="form-direct">Or email <a href="mailto:mirwais.sarwary.mse@gmail.com">mirwais.sarwary.mse@gmail.com</a></p>
                 <label for="name"><b>Name</b></label>
                 <input type="text" placeholder="Name" name="name" required>
-                <label for="phone"><b>Phone</b></label>
-                <input type="text" placeholder="Phone" name="phone" required>
+                <label for="phone"><b>Phone</b> <span class="optional">(optional)</span></label>
+                <input type="text" placeholder="Phone" name="phone">
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Email" name="email" required>
+                <input type="email" placeholder="Email" name="email" required>
                 <label for="message"><b>Message</b></label>
                 <input type="text" placeholder="Message" name="message" required>
                 <button type="submit" class="btn">SUBMIT</button>
@@ -190,9 +228,11 @@
         </div>
     </div>
 
-    <!-- Footer – credit and navigation -->
     <footer>
-        <p class="center name">Biomedical Devices Engineer and Software Developer<br><a href="#About">Mirwais Sarwary</a></p>
+        <p class="center name">Biomedical / medical-device engineer · also codes<br>
+        <a href="#About">Mirwais Sarwary</a> ·
+        <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">GitHub</a></p>
     </footer>
 </body>
 </html>
