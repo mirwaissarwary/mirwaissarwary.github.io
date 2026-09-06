@@ -50,8 +50,8 @@ document.addEventListener("click", function(event){
 document.addEventListener("DOMContentLoaded", function () {
     var v = document.getElementById("Main_Video");
     if (v) {
-        v.playbackRate = 0.4;
-        v.defaultPlaybackRate = 0.4;
+        v.playbackRate = 0.3;
+        v.defaultPlaybackRate = 0.3;
     }
 });
 
