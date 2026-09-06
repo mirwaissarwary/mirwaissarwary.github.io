@@ -45,3 +45,13 @@ document.addEventListener("click", function(event){
         closeForm()
     }
 }, false )
+
+// Calm Matrix background — slower playback
+document.addEventListener("DOMContentLoaded", function () {
+    var v = document.getElementById("Main_Video");
+    if (v) {
+        v.playbackRate = 0.4;
+        v.defaultPlaybackRate = 0.4;
+    }
+});
+
