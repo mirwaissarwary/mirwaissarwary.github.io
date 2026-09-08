@@ -1073,7 +1073,7 @@ body.Intro_Active {
     text-shadow: none;
 }
 
-/*----- Hero (replaces Matrix video block) -----*/
+/*----- Hero (Frame 3 continuity: medical-equipment bg + navy overlay) -----*/
 .Hero_Section {
     min-height: 100vh;
     display: flex;
@@ -1081,15 +1081,26 @@ body.Intro_Active {
     justify-content: center;
     padding: 12vh 6vw 8vh;
     box-sizing: border-box;
-    background:
-        radial-gradient(ellipse at 70% 30%, rgba(46, 196, 182, 0.12), transparent 55%),
-        radial-gradient(ellipse at 20% 80%, rgba(30, 60, 90, 0.35), transparent 50%),
-        var(--qm-navy);
+    position: relative;
+    background-color: var(--qm-navy);
+    background-image:
+        linear-gradient(
+            105deg,
+            rgba(11, 18, 32, 0.92) 0%,
+            rgba(11, 18, 32, 0.78) 45%,
+            rgba(11, 18, 32, 0.62) 100%
+        ),
+        url("../images/hero-medtech-bg.jpg?v=earth8");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .Hero_Text {
     max-width: 920px;
     width: 100%;
     letter-spacing: normal;
+    position: relative;
+    z-index: 1;
 }
 .Hero_Name {
     font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -1105,10 +1116,49 @@ body.Intro_Active {
     letter-spacing: normal;
 }
 .Hero_Sub {
-    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
     color: var(--qm-text);
-    margin: 0 0 1.4rem;
-    line-height: 1.55;
+    margin: 0 auto 1.5rem;
+    max-width: 46rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+}
+.Hero_Pills {
+    list-style: none;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.1rem 1.6rem;
+}
+.Hero_Pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 7.5rem;
+    max-width: 9.5rem;
+}
+.Hero_Pill_Icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 2px solid var(--qm-teal);
+    color: var(--qm-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    line-height: 1;
+    background: rgba(11, 18, 32, 0.45);
+    box-shadow: 0 0 12px rgba(46, 196, 182, 0.18);
+}
+.Hero_Pill_Label {
+    font-size: 0.82rem;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--qm-text);
     letter-spacing: normal;
 }
 .Hero_Quote {
@@ -1120,12 +1170,7 @@ body.Intro_Active {
 .Hero_Quote_Attr {
     font-size: 1rem;
     color: var(--qm-muted);
-    margin: 0.5rem 0 1.1rem;
-    letter-spacing: normal;
-}
-.Hero_Tagline {
-    font-size: clamp(1rem, 1.6vw, 1.2rem);
-    color: var(--qm-text);
+    margin: 0.5rem 0 0.25rem;
     letter-spacing: normal;
 }
 .hero-links {
