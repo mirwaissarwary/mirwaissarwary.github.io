@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <!-- Portfolio for Mirwais Sarwary – Biomedical / medical-device engineer who also codes -->
-    <!-- Brand update Sep 2026: devices + robotics-adjacent + software (not a software-career reboot) -->
+    <!-- Quiet Medtech visual + intro gate Sep 2026 (TTA coding style preserved; archive at /archive/tta/) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mirwais Sarwary — biomedical / medical-device engineer. R&D, robotics-adjacent systems, and practical software (C#/.NET, Python).">
@@ -10,7 +10,32 @@
     <link rel="stylesheet" href="./css/portfolio_style.css">
     <script src="./js/portfolio_JS.js" defer></script>
 </head>
-<body class="Background">
+<body class="Background Intro_Active">
+
+    <!-- =========================
+         Intro_Splash (gate + search animation)
+         Search for candidate = run intro
+         Skip intro = open portfolio immediately
+         ========================= -->
+    <div id="Intro_Splash" class="Intro_Splash">
+        <!-- Soft globe (animates only after Search is clicked) -->
+        <div id="Intro_Globe" class="Intro_Globe" aria-hidden="true"></div>
+
+        <div class="Intro_Panel">
+            <!-- Status text used during the search animation -->
+            <p id="Intro_Status" class="Intro_Status" aria-live="polite"></p>
+
+            <!-- Gate controls (shown first) -->
+            <div id="Intro_Gate" class="Intro_Gate">
+                <button type="button" id="Intro_Search_Button" class="Intro_Search_Button">Search for candidate</button>
+                <a href="#Home" id="Intro_Skip_Link" class="Intro_Skip_Link">Skip intro</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Portfolio_Main stays hidden until Skip or search animation finishes -->
+    <div id="Portfolio_Main" class="Portfolio_Main Portfolio_Main--Hidden">
 
     <div class="Navbar">
         <a href="#Home">Home</a>
@@ -25,38 +50,30 @@
         </div>
     </div>
 
-    <div id="Home">
-        <video autoplay muted loop id="Main_Video">
-            <source src="./Videos/Bkg_Matrix2.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
-    </div>
-
-    <div class="Video_Text">
-        <p class="glow center" style="font-size: 4.2em; margin-bottom: 0; line-height: 1;">Mirwais Sarwary</p>
-        <strong>
-            <p class="center" style="font-size: 2.2em; color: #0f0; text-shadow: 0 0 15px #0f0; margin: 15px 0 10px;">
-                Biomedical / Medical Device Engineer
-            </p>
-            <p class="center" style="font-size: 1.5em; color: white; margin: 16px 0 24px;">
+    <!-- Home / Quiet Medtech hero (no Matrix video — calm navy + teal) -->
+    <div id="Home" class="Hero_Section">
+        <div class="Hero_Text">
+            <p class="Hero_Name center">Mirwais Sarwary</p>
+            <p class="Hero_Title center">Biomedical / Medical Device Engineer</p>
+            <p class="Hero_Sub center">
                 R&amp;D · robotics-adjacent systems · software<br>
                 20+ years delivering FDA-regulated medical devices &amp; surgical robotics
             </p>
-            <div class="center" style="font-size: 1.35em; color: #0f9; line-height: 1.6;">
+            <div class="Hero_Quote center">
                 <q>Scientists study the world as it is;<br>engineers create the world that has never been.</q>
             </div>
-            <p class="center" style="font-size: 1.35em; color: #aaa; margin: 10px 0 20px;">— Theodore von Kármán</p>
-            <p class="center" style="font-size: 1.35em; color: white;">
+            <p class="Hero_Quote_Attr center">— Theodore von Kármán</p>
+            <p class="Hero_Tagline center">
                 Engineer by nature — building reliable devices and the software around them.
             </p>
-            <p class="center hero-links" style="font-size: 1.2em; margin-top: 28px;">
+            <p class="center hero-links">
                 <a href="https://www.linkedin.com/in/mirwaissarwary" target="_blank" rel="noopener">LinkedIn</a>
                 &nbsp;·&nbsp;
                 <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">GitHub</a>
                 &nbsp;·&nbsp;
                 <a href="mailto:mirwais.sarwary.mse@gmail.com">Email</a>
             </p>
-        </strong>
+        </div>
     </div>
 
     <div class="Row about-row" id="About">
@@ -231,5 +248,6 @@
         <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">GitHub</a><br>
         <a class="archive-link" href="./archive/tta/">Earlier TTA portfolio</a></p>
     </footer>
+    </div><!-- end Portfolio_Main -->
 </body>
 </html>
