@@ -60,7 +60,7 @@ document.addEventListener("click", function (event) {
 
 // =============================================
 // INTRO SPLASH — Earth mp4 gate + Search play-through
-// Gate: mute-loop gate-earth.mp4 behind real Search/Skip.
+// Gate: paused gate-earth.mp4 behind real Search/Skip; plays once on Search.
 // Search: play once (~11–12s) with flashing Searching...
 // Then: Candidate found → zoom.jpg + Mirwais Sarwary found → portfolio.
 // Skip: instant portfolio; cancel timers; stop video.
