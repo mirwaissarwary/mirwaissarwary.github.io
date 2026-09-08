@@ -1352,11 +1352,11 @@ body.Intro_Active {
     background-color: #000;
 }
 .Intro_Stage_Bg--Zoom {
-    background-image: url("../images/intro/zoom.jpg?v=earth5");
+    background-image: url("../images/intro/zoom.jpg?v=earth6");
 }
 .Intro_Stage_Bg--Transition {
     /* Frame 3 storyboard: California/Bay Area + Quiet Medtech hero */
-    background-image: url("../images/intro/transition-hero.jpg?v=earth5");
+    background-image: url("../images/intro/transition-hero.jpg?v=earth6");
 }
 
 /* Panel and gate sit above the video */
@@ -1396,15 +1396,15 @@ body.Intro_Active {
         display: none !important;
     }
     .Intro_Stage_Bg--Gate {
-        background-image: url("../images/intro/gate.jpg?v=earth5");
+        background-image: url("../images/intro/gate.jpg?v=earth6");
         background-color: #0b1220;
     }
     .Intro_Stage_Bg--Found {
-        background-image: url("../images/intro/found.jpg?v=earth5");
+        background-image: url("../images/intro/found.jpg?v=earth6");
         background-color: #0b1220;
     }
     .Intro_Stage_Bg--Zoom {
-        background-image: url("../images/intro/zoom.jpg?v=earth5");
+        background-image: url("../images/intro/zoom.jpg?v=earth6");
     }
     .Intro_Status--Flash {
         animation: none;
