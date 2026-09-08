@@ -1307,14 +1307,29 @@ body.Intro_Active {
 
 
 /*====================================================
-  INTRO SNAPSHOT STAGES (user-preferred brainstorm art)
-  Replaces spinning globe PNG with gate/searching/found/zoom images.
+  INTRO EARTH VIDEO + SNAPSHOT STAGES (Sep 2026)
+  gate-earth.mp4 loops behind real Search/Skip; Searching...
+  flashes in the foreground; zoom.jpg after Candidate found.
 ====================================================*/
 .Intro_Globe { display: none !important; } /* old globe asset retired */
+
+/* Full-bleed Earth video behind the panel (z-index 1) */
+.Intro_Gate_Video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    background-color: #000;
+    pointer-events: none;
+}
 
 .Intro_Stage_Bg {
     position: absolute;
     inset: 0;
+    z-index: 0;
     background-color: #0b1220;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1323,21 +1338,27 @@ body.Intro_Active {
     pointer-events: none;
 }
 
-/* Each stage uses the brainstorm snapshot JPG */
+/* Gate uses black (video is the look); other stages use snapshot JPGs */
 .Intro_Stage_Bg--Gate {
-    background-image: url("../images/intro/gate.jpg?v=f335a29");
+    background-color: #000;
+    background-image: none;
 }
 .Intro_Stage_Bg--Searching {
-    background-image: url("../images/intro/searching.jpg?v=f335a29");
+    background-image: none;
+    background-color: #000;
 }
 .Intro_Stage_Bg--Found {
-    background-image: url("../images/intro/found.jpg?v=f335a29");
+    background-image: none;
+    background-color: #000;
 }
 .Intro_Stage_Bg--Zoom {
-    background-image: url("../images/intro/zoom.jpg?v=f335a29");
+    background-image: url("../images/intro/zoom.jpg?v=earth1");
 }
 
-/* On the gate, keep our real button/link readable over the snapshot */
+/* Panel and gate sit above the video */
+.Intro_Panel {
+    z-index: 2;
+}
 .Intro_Splash .Intro_Gate {
     position: relative;
     z-index: 3;
@@ -1355,13 +1376,34 @@ body.Intro_Active {
     letter-spacing: 0.04em;
     text-shadow: 0 0 18px rgba(46, 196, 182, 0.35);
 }
-.Intro_Stage_Bg--Searching {
-    animation: Intro_Search_Pulse 2.2s ease-in-out infinite;
+
+/* Flashing Searching... while Earth video plays through once */
+.Intro_Status--Flash {
+    animation: Intro_Status_Flash 1.1s ease-in-out infinite;
 }
-@keyframes Intro_Search_Pulse {
-    0%, 100% { transform: scale(1); filter: brightness(1); }
-    50% { transform: scale(1.03); filter: brightness(1.12); }
+@keyframes Intro_Status_Flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.28; }
 }
+
 @media (prefers-reduced-motion: reduce) {
-    .Intro_Stage_Bg--Searching { animation: none; }
+    /* Hide video; restore static gate.jpg for the reduced-motion path */
+    .Intro_Gate_Video {
+        display: none !important;
+    }
+    .Intro_Stage_Bg--Gate {
+        background-image: url("../images/intro/gate.jpg?v=earth1");
+        background-color: #0b1220;
+    }
+    .Intro_Stage_Bg--Found {
+        background-image: url("../images/intro/found.jpg?v=earth1");
+        background-color: #0b1220;
+    }
+    .Intro_Stage_Bg--Zoom {
+        background-image: url("../images/intro/zoom.jpg?v=earth1");
+    }
+    .Intro_Status--Flash {
+        animation: none;
+        opacity: 1;
+    }
 }

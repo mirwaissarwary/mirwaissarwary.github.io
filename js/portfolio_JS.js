@@ -59,12 +59,20 @@ document.addEventListener("click", function (event) {
 }, false);
 
 // =============================================
-// INTRO SPLASH — Search for candidate / Skip intro
-// Uses brainstorm snapshot images for each stage.
+// INTRO SPLASH — Earth mp4 gate + Search play-through
+// Gate: mute-loop gate-earth.mp4 behind real Search/Skip.
+// Search: play once (~11–12s) with flashing Searching...
+// Then: Candidate found → zoom.jpg + Mirwais Sarwary found → portfolio.
+// Skip: instant portfolio; cancel timers; stop video.
+// prefers-reduced-motion: no video; short status → portfolio.
 // =============================================
 
 // Holds timer IDs so Skip can cancel a running search animation
 var introTimers = [];
+
+// True once Search has started (or Skip opened the portfolio)
+var introSearchStarted = false;
+var introFinished = false;
 
 // Helper: schedule a step and remember the timer so we can clear it
 function introLater(fn, ms) {
@@ -88,32 +96,86 @@ function setIntroStage(stageName) {
     bg.className = "Intro_Stage_Bg Intro_Stage_Bg--" + stageName;
 }
 
-// Types text into Intro_Status one character at a time (searching animation)
-function typeIntroStatus(text, doneFn) {
+// Set Intro_Status text and optional flash / blink classes
+function setIntroStatus(text, flash) {
     var status = document.getElementById("Intro_Status");
-    if (!status) {
-        if (doneFn) { doneFn(); }
-        return;
+    if (!status) { return; }
+    status.classList.remove("Intro_Status--Blink");
+    status.classList.remove("Intro_Status--Flash");
+    status.textContent = text || "";
+    if (flash) {
+        status.classList.add("Intro_Status--Flash");
     }
-    status.classList.add("Intro_Status--Blink");
-    status.textContent = "";
-    var i = 0;
-    function tick() {
-        if (i <= text.length) {
-            status.textContent = text.slice(0, i);
-            i += 1;
-            introLater(tick, 70);
-        } else if (doneFn) {
-            doneFn();
-        }
-    }
-    tick();
 }
 
+// Stop and hide the Earth gate video (used by Skip / showPortfolio)
+function stopGateVideo() {
+    var video = document.getElementById("Intro_Gate_Video");
+    if (!video) { return; }
+    try {
+        video.pause();
+        video.onended = null;
+        video.loop = false;
+        video.currentTime = 0;
+    } catch (err) {
+        // Some browsers throw if currentTime is set before metadata loads
+    }
+    video.style.display = "none";
+}
+
+// Idle gate: muted loop of Earth video behind Search / Skip
+function startGateVideoLoop() {
+    var video = document.getElementById("Intro_Gate_Video");
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!video || reduceMotion) {
+        if (video) {
+            video.style.display = "none";
+        }
+        return;
+    }
+    video.loop = true;
+    video.muted = true;
+    video.style.display = "";
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {
+            // Autoplay can fail until the user interacts; Search will try again
+        });
+    }
+}
+
+// After the Search play-through ends: Candidate found → Zoom → portfolio
+function afterSearchVideoEnds() {
+    if (introFinished) { return; }
+    introFinished = true;
+    clearIntroTimers();
+
+    var video = document.getElementById("Intro_Gate_Video");
+    if (video) {
+        video.onended = null;
+        try {
+            video.pause();
+        } catch (err) { /* ignore */ }
+        video.style.display = "none";
+    }
+
+    // Step: Candidate found (foreground text over dark/black stage)
+    setIntroStage("Found");
+    setIntroStatus("Candidate found", false);
+
+    // Then: zoom snapshot + Mirwais Sarwary found, then open portfolio
+    introLater(function () {
+        setIntroStage("Zoom");
+        setIntroStatus("Mirwais Sarwary found", false);
+        introLater(showPortfolio, 1400);
+    }, 1100);
+}
 
 // Shows the Quiet Medtech portfolio and hides the intro splash
 function showPortfolio() {
     clearIntroTimers();
+    introFinished = true;
+    stopGateVideo();
 
     var splash = document.getElementById("Intro_Splash");
     var main = document.getElementById("Portfolio_Main");
@@ -129,7 +191,8 @@ function showPortfolio() {
     // Fade the splash out, then remove it from view
     if (splash) {
         splash.classList.add("Intro_Splash--Hide");
-        introLater(function () {
+        // Use a one-shot timer that is not tracked (intro is done)
+        setTimeout(function () {
             splash.style.display = "none";
         }, 500);
     }
@@ -138,65 +201,84 @@ function showPortfolio() {
     showSlides(slideIndex);
 }
 
-// Skip intro: no animation — open the portfolio right away
+// Skip intro: instant portfolio; cancel timers; stop video
 function skipIntro(event) {
     if (event) {
         event.preventDefault();
     }
+    clearIntroTimers();
+    introFinished = true;
+    stopGateVideo();
     showPortfolio();
 }
 
-// Search for candidate: play snapshot stages, then open portfolio
+// Search for candidate: play Earth video once with flashing Searching...
 function startCandidateSearch() {
-    var gate = document.getElementById("Intro_Gate");
+    if (introSearchStarted || introFinished) { return; }
+    introSearchStarted = true;
+
     var status = document.getElementById("Intro_Status");
+    var video = document.getElementById("Intro_Gate_Video");
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Hide Search button; keep Skip during Searching
+    // Hide Search button; keep Skip available during Searching
     var searchBtn = document.getElementById("Intro_Search_Button");
     if (searchBtn) {
         searchBtn.style.display = "none";
     }
 
-    // Reduced motion: brief found, then portfolio
+    // prefers-reduced-motion: no video; short Candidate found → name → portfolio
     if (reduceMotion) {
-        setIntroStage("Found");
-        if (status) {
-            status.classList.remove("Intro_Status--Blink");
-            status.textContent = ""; // found.jpg carries the label
+        if (video) {
+            video.style.display = "none";
         }
-        introLater(showPortfolio, 900);
+        setIntroStage("Found");
+        setIntroStatus("Candidate found", false);
+        introLater(function () {
+            setIntroStage("Zoom");
+            setIntroStatus("Mirwais Sarwary found", false);
+            introLater(showPortfolio, 900);
+        }, 700);
         return;
     }
 
-    // Step 1: Searching snapshot + typed/flashing Searching...
+    // Motion path: restart video, play once, flash Searching...
     setIntroStage("Searching");
-    typeIntroStatus("Searching...", function () {
-        // Hold on Searching longer (Skip is always available before this starts)
-        introLater(function () {
-            // Soft flash cycle: clear and re-type once more for motion
-            typeIntroStatus("Searching...", function () {
-                introLater(function () {
-                    // Step 2: Found
-                    setIntroStage("Found");
-                    if (status) {
-                        status.classList.remove("Intro_Status--Blink");
-                        status.textContent = ""; // found.jpg carries the label
-                    }
+    setIntroStatus("Searching...", true);
 
-                    // Step 3: Zoom / transition snapshot
-                    introLater(function () {
-                        setIntroStage("Zoom");
-                        if (status) {
-                            status.textContent = "";
-                        }
-                        // Step 4: open Quiet Medtech portfolio
-                        introLater(showPortfolio, 1600);
-                    }, 1600);
-                }, 2200); // extra hold after second Searching type-out
-            });
-        }, 2800); // hold after first Searching type-out
-    });
+    if (!video) {
+        // No video element — fall through with a short delay
+        introLater(afterSearchVideoEnds, 1200);
+        return;
+    }
+
+    video.style.display = "";
+    video.loop = false;
+    video.muted = true;
+    video.onended = function () {
+        afterSearchVideoEnds();
+    };
+
+    try {
+        video.currentTime = 0;
+    } catch (err) {
+        // Ignore if metadata is not ready yet
+    }
+
+    var playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {
+            // If play fails, still advance so the user is not stuck
+            introLater(afterSearchVideoEnds, 800);
+        });
+    }
+
+    // Safety timer (~12.5s) if ended event is missed
+    introLater(function () {
+        if (!introFinished) {
+            afterSearchVideoEnds();
+        }
+    }, 12500);
 }
 
 // Wire up the intro controls after the page HTML is ready
@@ -204,8 +286,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var searchBtn = document.getElementById("Intro_Search_Button");
     var skipLink = document.getElementById("Intro_Skip_Link");
 
-    // Start on the gate snapshot
+    // Start on the gate stage + muted Earth loop
     setIntroStage("Gate");
+    startGateVideoLoop();
 
     if (searchBtn) {
         searchBtn.addEventListener("click", startCandidateSearch);

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mirwais Sarwary — biomedical / medical-device engineer. R&D, robotics-adjacent systems, and practical software (C#/.NET, Python).">
     <title>Mirwais Sarwary | Biomedical / Medical Device Engineer</title>
-    <link rel="stylesheet" href="./css/portfolio_style.css?v=f335a29">
-    <script src="./js/portfolio_JS.js?v=f335a29" defer></script>
+    <link rel="stylesheet" href="./css/portfolio_style.css?v=earth1">
+    <script src="./js/portfolio_JS.js?v=earth1" defer></script>
 </head>
 <body class="Background Intro_Active">
 
@@ -18,14 +18,19 @@
          Skip intro = open portfolio immediately
          ========================= -->
     <div id="Intro_Splash" class="Intro_Splash">
-        <!-- Brainstorm snapshot stages (gate → searching → found → zoom) -->
+        <!-- Earth mp4 gate background (loops idle; plays once on Search) -->
+        <video id="Intro_Gate_Video" class="Intro_Gate_Video" muted playsinline loop preload="auto" poster="./images/intro/gate.jpg">
+            <source src="./images/intro/gate-earth.mp4?v=430c70a" type="video/mp4">
+        </video>
+
+        <!-- Snapshot stages behind/after video (gate black while video plays; zoom.jpg later) -->
         <div id="Intro_Stage_Bg" class="Intro_Stage_Bg Intro_Stage_Bg--Gate" aria-hidden="true"></div>
 
         <div class="Intro_Panel">
-            <!-- Status is optional; snapshots already show Searching/found art -->
+            <!-- Foreground status: Searching... flash, then Candidate found / Mirwais Sarwary found -->
             <p id="Intro_Status" class="Intro_Status" aria-live="polite"></p>
 
-            <!-- Gate controls (real clickable controls — snapshots are the look) -->
+            <!-- Gate controls (real HTML — no painted CTAs in the video) -->
             <div id="Intro_Gate" class="Intro_Gate">
                 <button type="button" id="Intro_Search_Button" class="Intro_Search_Button">Search for candidate</button>
                 <a href="#Home" id="Intro_Skip_Link" class="Intro_Skip_Link">Skip intro</a>
