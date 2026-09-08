@@ -1201,7 +1201,8 @@ body.Intro_Active {
 /*----- About / projects teal accents -----*/
 .about-card h1,
 .projects-section h1,
-#Collaborate h1 {
+#Collaborate h1,
+.collaborate-card h1 {
     color: var(--qm-teal) !important;
 }
 .about-card a,
@@ -1485,3 +1486,82 @@ body.Intro_Active {
 .footer-line a:hover {
     color: var(--qm-teal, #2ec4b6);
 }
+
+
+/*----- Collaborate: align text column with invite image -----*/
+.collaborate-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2rem;
+    padding: 3rem 4vw 2rem;
+    box-sizing: border-box;
+    background: transparent;
+}
+.collaborate-col {
+    flex: 1 1 280px;
+    min-width: 0;
+}
+.collaborate-col--text {
+    display: flex;
+    align-items: center;
+}
+.collaborate-card {
+    width: 100%;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: 1.25rem 1.1rem;
+    letter-spacing: normal;
+    background: rgba(11, 18, 32, 0.72);
+    border: 1px solid rgba(46, 196, 182, 0.35);
+    border-radius: 12px;
+}
+.collaborate-card h1 {
+    margin-top: 0;
+    text-align: left;
+}
+.collaborate-card p {
+    text-align: left;
+    color: var(--qm-text, #e8eef7);
+    line-height: 1.55;
+}
+.collaborate-links,
+.collaborate-cta {
+    text-align: left !important;
+}
+.collaborate-links a {
+    color: var(--qm-teal, #2ec4b6);
+}
+.collaborate-col--media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.collaborate-image {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.footer-buffer {
+    min-height: 18vh;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+@media screen and (max-width: 900px) {
+    .collaborate-row {
+        flex-direction: column;
+        padding: 2rem 5vw;
+    }
+    .collaborate-card {
+        max-width: none;
+    }
+    .collaborate-image {
+        max-width: 100%;
+    }
+}
+
