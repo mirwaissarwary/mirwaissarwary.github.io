@@ -1086,11 +1086,11 @@ body.Intro_Active {
     background-image:
         linear-gradient(
             105deg,
-            rgba(11, 18, 32, 0.78) 0%,
-            rgba(11, 18, 32, 0.55) 42%,
-            rgba(11, 18, 32, 0.32) 100%
+            rgba(11, 18, 32, 0.62) 0%,
+            rgba(11, 18, 32, 0.38) 40%,
+            rgba(11, 18, 32, 0.18) 100%
         ),
-        url("../images/hero-medtech-bg.jpg?v=earth9");
+        url("../images/hero-medtech-bg.jpg?v=earth10");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
