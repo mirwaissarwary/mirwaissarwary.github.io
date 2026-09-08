@@ -1304,3 +1304,54 @@ body.Intro_Active {
         animation: none;
     }
 }
+
+
+/*====================================================
+  INTRO SNAPSHOT STAGES (user-preferred brainstorm art)
+  Replaces spinning globe PNG with gate/searching/found/zoom images.
+====================================================*/
+.Intro_Globe { display: none !important; } /* old globe asset retired */
+
+.Intro_Stage_Bg {
+    position: absolute;
+    inset: 0;
+    background-color: #0b1220;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+/* Each stage uses the brainstorm snapshot JPG */
+.Intro_Stage_Bg--Gate {
+    background-image: url("../images/intro/gate.jpg");
+}
+.Intro_Stage_Bg--Searching {
+    background-image: url("../images/intro/searching.jpg");
+}
+.Intro_Stage_Bg--Found {
+    background-image: url("../images/intro/found.jpg");
+}
+.Intro_Stage_Bg--Zoom {
+    background-image: url("../images/intro/zoom.jpg");
+}
+
+/* On the gate, keep our real button/link readable over the snapshot */
+.Intro_Splash .Intro_Gate {
+    position: relative;
+    z-index: 3;
+}
+.Intro_Splash .Intro_Panel {
+    /* Push controls toward lower-center so they sit near snapshot CTAs */
+    margin-top: 18vh;
+}
+.Intro_Status {
+    /* Snapshots carry the Searching/found typography; keep this for a11y */
+    color: transparent;
+    text-shadow: none;
+    min-height: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+}
