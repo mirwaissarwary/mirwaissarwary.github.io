@@ -60,6 +60,7 @@ document.addEventListener("click", function (event) {
 
 // =============================================
 // INTRO SPLASH — Search for candidate / Skip intro
+// Uses brainstorm snapshot images for each stage.
 // =============================================
 
 // Holds timer IDs so Skip can cancel a running search animation
@@ -80,19 +81,19 @@ function clearIntroTimers() {
     introTimers = [];
 }
 
+// Switch the full-screen snapshot background stage
+function setIntroStage(stageName) {
+    var bg = document.getElementById("Intro_Stage_Bg");
+    if (!bg) { return; }
+    bg.className = "Intro_Stage_Bg Intro_Stage_Bg--" + stageName;
+}
+
 // Shows the Quiet Medtech portfolio and hides the intro splash
 function showPortfolio() {
     clearIntroTimers();
 
     var splash = document.getElementById("Intro_Splash");
     var main = document.getElementById("Portfolio_Main");
-    var globe = document.getElementById("Intro_Globe");
-
-    // Stop globe motion classes
-    if (globe) {
-        globe.classList.remove("Intro_Globe--Spinning");
-        globe.classList.remove("Intro_Globe--Zoom");
-    }
 
     // Reveal portfolio content
     if (main) {
@@ -122,33 +123,9 @@ function skipIntro(event) {
     showPortfolio();
 }
 
-// Types text into Intro_Status one character at a time (simple loop)
-function typeIntroStatus(text, doneFn) {
-    var status = document.getElementById("Intro_Status");
-    if (!status) {
-        if (doneFn) { doneFn(); }
-        return;
-    }
-    status.classList.add("Intro_Status--Blink");
-    status.textContent = "";
-    var i = 0;
-
-    function tick() {
-        if (i <= text.length) {
-            status.textContent = text.slice(0, i);
-            i += 1;
-            introLater(tick, 55);
-        } else if (doneFn) {
-            doneFn();
-        }
-    }
-    tick();
-}
-
-// Search for candidate: animate globe + Searching... → found → zoom → portfolio
+// Search for candidate: play snapshot stages, then open portfolio
 function startCandidateSearch() {
     var gate = document.getElementById("Intro_Gate");
-    var globe = document.getElementById("Intro_Globe");
     var status = document.getElementById("Intro_Status");
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -157,49 +134,40 @@ function startCandidateSearch() {
         gate.style.display = "none";
     }
 
-    // Reduced motion: brief found message, then portfolio (no spin/zoom show)
+    // Reduced motion: jump to found art briefly, then portfolio
     if (reduceMotion) {
-        if (status) {
-            status.classList.remove("Intro_Status--Blink");
-            status.textContent = "Mirwais Sarwary found";
-        }
+        setIntroStage("Found");
+        if (status) { status.textContent = "Mirwais Sarwary found"; }
         introLater(showPortfolio, 700);
         return;
     }
 
-    // Start globe spin when Search is selected
-    if (globe) {
-        globe.classList.add("Intro_Globe--Spinning");
-    }
+    // Step 1: Searching snapshot
+    setIntroStage("Searching");
+    if (status) { status.textContent = "Searching..."; }
 
-    // Step 1: type Searching...
-    typeIntroStatus("Searching...", function () {
-        // Step 2: hold the searching state briefly (flashing cursor already on)
+    // Step 2: Found snapshot
+    introLater(function () {
+        setIntroStage("Found");
+        if (status) { status.textContent = "Mirwais Sarwary found"; }
+
+        // Step 3: Zoom / transition snapshot
         introLater(function () {
-            // Step 3: show found
-            if (status) {
-                status.classList.remove("Intro_Status--Blink");
-                status.textContent = "Mirwais Sarwary found";
-            }
+            setIntroStage("Zoom");
 
-            // Step 4: zoom the globe toward the viewer
-            introLater(function () {
-                if (globe) {
-                    globe.classList.remove("Intro_Globe--Spinning");
-                    globe.classList.add("Intro_Globe--Zoom");
-                }
-
-                // Step 5: open Quiet Medtech portfolio
-                introLater(showPortfolio, 1100);
-            }, 900);
-        }, 900);
-    });
+            // Step 4: open Quiet Medtech portfolio
+            introLater(showPortfolio, 1100);
+        }, 1100);
+    }, 1400);
 }
 
 // Wire up the intro controls after the page HTML is ready
 document.addEventListener("DOMContentLoaded", function () {
     var searchBtn = document.getElementById("Intro_Search_Button");
     var skipLink = document.getElementById("Intro_Skip_Link");
+
+    // Start on the gate snapshot
+    setIntroStage("Gate");
 
     if (searchBtn) {
         searchBtn.addEventListener("click", startCandidateSearch);
@@ -208,6 +176,5 @@ document.addEventListener("DOMContentLoaded", function () {
         skipLink.addEventListener("click", skipIntro);
     }
 
-    // Note: we no longer auto-play a Matrix video.
     // Slideshow starts inside showPortfolio() after Skip or Search completes.
 });
