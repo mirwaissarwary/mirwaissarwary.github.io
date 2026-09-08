@@ -1083,16 +1083,18 @@ body.Intro_Active {
     box-sizing: border-box;
     position: relative;
     background-color: var(--qm-navy);
+    /* Frame 3 continuity: solid navy left, equipment only on the right — no baked-in text/pills */
     background-image:
         linear-gradient(
-            105deg,
-            rgba(11, 18, 32, 0.62) 0%,
-            rgba(11, 18, 32, 0.38) 40%,
-            rgba(11, 18, 32, 0.18) 100%
+            90deg,
+            rgba(11, 18, 32, 0.98) 0%,
+            rgba(11, 18, 32, 0.88) 38%,
+            rgba(11, 18, 32, 0.45) 68%,
+            rgba(11, 18, 32, 0.22) 100%
         ),
-        url("../images/hero-medtech-bg.jpg?v=earth10");
+        url("../images/hero-medtech-bg.jpg?v=earth11");
     background-size: cover;
-    background-position: center center;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 .Hero_Text {
