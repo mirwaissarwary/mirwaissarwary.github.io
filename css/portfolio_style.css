@@ -1325,16 +1325,16 @@ body.Intro_Active {
 
 /* Each stage uses the brainstorm snapshot JPG */
 .Intro_Stage_Bg--Gate {
-    background-image: url("../images/intro/gate.jpg");
+    background-image: url("../images/intro/gate.jpg?v=f335a29");
 }
 .Intro_Stage_Bg--Searching {
-    background-image: url("../images/intro/searching.jpg");
+    background-image: url("../images/intro/searching.jpg?v=f335a29");
 }
 .Intro_Stage_Bg--Found {
-    background-image: url("../images/intro/found.jpg");
+    background-image: url("../images/intro/found.jpg?v=f335a29");
 }
 .Intro_Stage_Bg--Zoom {
-    background-image: url("../images/intro/zoom.jpg");
+    background-image: url("../images/intro/zoom.jpg?v=f335a29");
 }
 
 /* On the gate, keep our real button/link readable over the snapshot */
