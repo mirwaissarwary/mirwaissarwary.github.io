@@ -18,14 +18,14 @@
          Skip intro = open portfolio immediately
          ========================= -->
     <div id="Intro_Splash" class="Intro_Splash">
-        <!-- Soft globe (animates only after Search is clicked) -->
-        <div id="Intro_Globe" class="Intro_Globe" aria-hidden="true"></div>
+        <!-- Brainstorm snapshot stages (gate → searching → found → zoom) -->
+        <div id="Intro_Stage_Bg" class="Intro_Stage_Bg Intro_Stage_Bg--Gate" aria-hidden="true"></div>
 
         <div class="Intro_Panel">
-            <!-- Status text used during the search animation -->
+            <!-- Status is optional; snapshots already show Searching/found art -->
             <p id="Intro_Status" class="Intro_Status" aria-live="polite"></p>
 
-            <!-- Gate controls (shown first) -->
+            <!-- Gate controls (real clickable controls — snapshots are the look) -->
             <div id="Intro_Gate" class="Intro_Gate">
                 <button type="button" id="Intro_Search_Button" class="Intro_Search_Button">Search for candidate</button>
                 <a href="#Home" id="Intro_Skip_Link" class="Intro_Skip_Link">Skip intro</a>
