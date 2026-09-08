@@ -53,7 +53,15 @@ function showSlides(n) {
 document.addEventListener("click", function (event) {
     // If the click happens on the cancel button OR anywhere that is not the contact form
     // AND the click does not happen on any element with the contact class then call closeForm()
-    if (event.target.matches(".cancel") || !event.target.closest(".form-popup") && !event.target.closest(".Pop_Up_Button") && !event.target.closest(".contact")) {
+    // Keep form open when clicking Contact / Send a message / other openForm triggers
+    var isOpener = event.target.closest(".form-popup") ||
+        event.target.closest(".Pop_Up_Button") ||
+        event.target.closest(".contact") ||
+        (event.target.closest("button") && event.target.closest("button").getAttribute("onclick") &&
+            event.target.closest("button").getAttribute("onclick").indexOf("openForm") !== -1);
+    if (event.target.matches(".cancel")) {
+        closeForm();
+    } else if (!isOpener) {
         closeForm();
     }
 }, false);
