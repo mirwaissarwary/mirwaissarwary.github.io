@@ -157,7 +157,8 @@ function showPausedGateVideo() {
     }
 }
 
-// After the Search play-through ends: Candidate found → Zoom → portfolio
+// After the Search play-through ends:
+// Candidate found → Mirwais Sarwary found (hold 3s) → Zoom → portfolio
 function afterSearchVideoEnds() {
     if (introFinished) { return; }
     introFinished = true;
@@ -172,16 +173,20 @@ function afterSearchVideoEnds() {
         video.style.display = "none";
     }
 
-    // Step: Candidate found (foreground text over dark/black stage)
+    // Step 1: Candidate found
     setIntroStage("Found");
     setIntroStatus("Candidate found", false);
 
-    // Then: zoom snapshot + Mirwais Sarwary found, then open portfolio
+    // Step 2: show name and hold 3 seconds, then zoom into the map
     introLater(function () {
-        setIntroStage("Zoom");
         setIntroStatus("Mirwais Sarwary found", false);
-        introLater(showPortfolio, 1400);
-    }, 1100);
+
+        introLater(function () {
+            setIntroStage("Zoom");
+            // Keep the name visible during zoom, then open the portfolio
+            introLater(showPortfolio, 1600);
+        }, 3000);
+    }, 1200);
 }
 
 // Shows the Quiet Medtech portfolio and hides the intro splash
@@ -248,10 +253,12 @@ function startCandidateSearch() {
         setIntroStage("Found");
         setIntroStatus("Candidate found", false);
         introLater(function () {
-            setIntroStage("Zoom");
             setIntroStatus("Mirwais Sarwary found", false);
-            introLater(showPortfolio, 900);
-        }, 700);
+            introLater(function () {
+                setIntroStage("Zoom");
+                introLater(showPortfolio, 1200);
+            }, 3000);
+        }, 900);
         return;
     }
 
