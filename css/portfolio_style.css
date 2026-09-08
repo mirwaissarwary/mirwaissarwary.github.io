@@ -1472,3 +1472,16 @@ body.Intro_Active {
         opacity: 1;
     }
 }
+
+.footer-line {
+    margin: 0;
+    color: var(--qm-muted, #9aa8bc);
+    font-size: 0.95rem;
+    letter-spacing: normal;
+}
+.footer-line a {
+    color: var(--qm-muted, #9aa8bc);
+}
+.footer-line a:hover {
+    color: var(--qm-teal, #2ec4b6);
+}
