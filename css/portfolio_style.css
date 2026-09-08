@@ -1018,3 +1018,289 @@ html {
         padding: 0.7rem 1rem;
     }
 }
+
+/*====================================================
+  QUIET MEDTECH THEME + INTRO SPLASH (Sep 2026)
+  Same file / comment style as the rest of this sheet.
+  Teal accents replace neon green on the ROOT site only.
+====================================================*/
+
+:root {
+    --qm-navy: #0b1220;
+    --qm-charcoal: #121a2b;
+    --qm-teal: #2ec4b6;
+    --qm-teal-dark: #1f9e93;
+    --qm-text: #e8eef7;
+    --qm-muted: #9aa8bc;
+}
+
+/* Body background — calm navy instead of Matrix feel */
+body.Background {
+    background-color: var(--qm-navy);
+    background-image: linear-gradient(180deg, #0b1220 0%, #121a2b 55%, #0b1220 100%);
+}
+
+/* While intro gate/animation is active, hide scroll behind it */
+body.Intro_Active {
+    overflow: hidden;
+}
+
+/*----- Portfolio_Main visibility -----*/
+.Portfolio_Main--Hidden {
+    display: none;
+}
+.Portfolio_Main {
+    min-height: 100vh;
+}
+
+/*----- Quiet Medtech navbar -----*/
+.Navbar {
+    background-image: none;
+    background-color: rgba(11, 18, 32, 0.94);
+    border-bottom: 1px solid rgba(46, 196, 182, 0.25);
+}
+.Navbar a {
+    text-shadow: none;
+    color: var(--qm-text);
+}
+.Navbar a:hover {
+    background-color: rgba(46, 196, 182, 0.15);
+    color: var(--qm-teal);
+}
+.navbar-title .arrow,
+.navbar-title .name {
+    color: var(--qm-teal);
+    text-shadow: none;
+}
+
+/*----- Hero (replaces Matrix video block) -----*/
+.Hero_Section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12vh 6vw 8vh;
+    box-sizing: border-box;
+    background:
+        radial-gradient(ellipse at 70% 30%, rgba(46, 196, 182, 0.12), transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(30, 60, 90, 0.35), transparent 50%),
+        var(--qm-navy);
+}
+.Hero_Text {
+    max-width: 920px;
+    width: 100%;
+    letter-spacing: normal;
+}
+.Hero_Name {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: #fff;
+    font-weight: bold;
+    margin: 0 0 0.35rem;
+    letter-spacing: normal;
+}
+.Hero_Title {
+    font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+    color: var(--qm-teal);
+    margin: 0 0 1rem;
+    letter-spacing: normal;
+}
+.Hero_Sub {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    color: var(--qm-text);
+    margin: 0 0 1.4rem;
+    line-height: 1.55;
+    letter-spacing: normal;
+}
+.Hero_Quote {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: #8fd9d1;
+    line-height: 1.55;
+    letter-spacing: normal;
+}
+.Hero_Quote_Attr {
+    font-size: 1rem;
+    color: var(--qm-muted);
+    margin: 0.5rem 0 1.1rem;
+    letter-spacing: normal;
+}
+.Hero_Tagline {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--qm-text);
+    letter-spacing: normal;
+}
+.hero-links {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    letter-spacing: normal;
+}
+.hero-links a {
+    color: var(--qm-teal);
+}
+
+/*----- About / projects teal accents -----*/
+.about-card h1,
+.projects-section h1,
+#GitHub h1 {
+    color: var(--qm-teal) !important;
+}
+.about-card a,
+.project-card h2 {
+    color: var(--qm-teal) !important;
+}
+.project-card {
+    border-color: rgba(46, 196, 182, 0.55) !important;
+    background: rgba(11, 18, 32, 0.85) !important;
+}
+.project-card:hover {
+    box-shadow: 0 0 18px rgba(46, 196, 182, 0.3) !important;
+}
+.archive-link {
+    color: var(--qm-muted);
+}
+.archive-link:hover {
+    color: var(--qm-teal);
+}
+
+/* Contact button Quiet Medtech */
+.Pop_Up_Button {
+    background-color: rgba(46, 196, 182, 0.35);
+    color: #fff;
+    border: 1px solid rgba(46, 196, 182, 0.5);
+}
+.Pop_Up_Button:hover {
+    color: var(--qm-teal-dark);
+    background-color: #fff;
+    border-color: var(--qm-teal);
+}
+
+/*====================================================
+  INTRO SPLASH — gate + search animation
+====================================================*/
+.Intro_Splash {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--qm-navy);
+    overflow: hidden;
+}
+
+/* Soft globe in the background */
+.Intro_Globe {
+    position: absolute;
+    width: min(70vw, 520px);
+    height: min(70vw, 520px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-image: url("../images/intro-globe.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.28;
+    transition: transform 1.2s ease-in, opacity 0.6s ease;
+    pointer-events: none;
+}
+
+/* Globe spins only after Search is clicked */
+.Intro_Globe.Intro_Globe--Spinning {
+    opacity: 0.45;
+    animation: Intro_Globe_Spin 12s linear infinite;
+}
+.Intro_Globe.Intro_Globe--Zoom {
+    opacity: 0.55;
+    animation: none;
+    transform: translate(-50%, -50%) scale(2.4);
+}
+
+@keyframes Intro_Globe_Spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.Intro_Panel {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    letter-spacing: normal;
+    padding: 1.5rem;
+}
+
+.Intro_Gate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Intro_Search_Button {
+    width: auto;
+    min-width: 16rem;
+    padding: 0.85rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--qm-teal);
+    color: #06201d;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+.Intro_Search_Button:hover {
+    background-color: #3fd4c5;
+    color: #06201d;
+    border-radius: 8px;
+}
+
+.Intro_Skip_Link {
+    color: #c5d0de;
+    font-size: 1rem;
+    letter-spacing: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.Intro_Skip_Link:hover {
+    color: #fff;
+}
+
+.Intro_Status {
+    min-height: 2.5rem;
+    margin: 0 0 1.2rem;
+    color: var(--qm-teal);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: normal;
+}
+
+/* Blinking cursor after Searching... */
+.Intro_Status--Blink::after {
+    content: "|";
+    margin-left: 2px;
+    animation: Intro_Cursor_Blink 0.9s step-end infinite;
+    color: var(--qm-teal);
+}
+@keyframes Intro_Cursor_Blink {
+    50% { opacity: 0; }
+}
+
+/* Fade splash away when done */
+.Intro_Splash.Intro_Splash--Hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Intro_Globe.Intro_Globe--Spinning {
+        animation: none;
+    }
+    .Intro_Globe.Intro_Globe--Zoom {
+        transition: none;
+    }
+    .Intro_Status--Blink::after {
+        animation: none;
+    }
+}
