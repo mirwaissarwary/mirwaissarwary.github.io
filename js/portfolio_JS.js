@@ -123,8 +123,9 @@ function stopGateVideo() {
     video.style.display = "none";
 }
 
-// Idle gate: muted loop of Earth video behind Search / Skip
-function startGateVideoLoop() {
+// Idle gate: show Earth video paused on first frame behind Search / Skip
+// (plays only after Search for candidate is clicked)
+function showPausedGateVideo() {
     var video = document.getElementById("Intro_Gate_Video");
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!video || reduceMotion) {
@@ -133,14 +134,26 @@ function startGateVideoLoop() {
         }
         return;
     }
-    video.loop = true;
+    video.loop = false;
     video.muted = true;
     video.style.display = "";
-    var playPromise = video.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(function () {
-            // Autoplay can fail until the user interacts; Search will try again
-        });
+    try {
+        video.pause();
+        video.currentTime = 0;
+    } catch (err) {
+        // Metadata may not be ready yet; poster still shows
+    }
+    // Ensure first frame paints once metadata is available
+    function seekToStart() {
+        try {
+            video.pause();
+            video.currentTime = 0;
+        } catch (err2) { /* ignore */ }
+    }
+    if (video.readyState >= 1) {
+        seekToStart();
+    } else {
+        video.addEventListener("loadedmetadata", seekToStart, { once: true });
     }
 }
 
@@ -242,8 +255,9 @@ function startCandidateSearch() {
         return;
     }
 
-    // Motion path: restart video, play once, flash Searching...
-    setIntroStage("Searching");
+    // Motion path: play Earth video once from the start; flash Searching...
+    // Stay on Gate stage so the video (not searching.jpg) remains the backdrop
+    setIntroStage("Gate");
     setIntroStatus("Searching...", true);
 
     if (!video) {
@@ -286,9 +300,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var searchBtn = document.getElementById("Intro_Search_Button");
     var skipLink = document.getElementById("Intro_Skip_Link");
 
-    // Start on the gate stage + muted Earth loop
+    // Start on the gate stage with Earth video paused
     setIntroStage("Gate");
-    startGateVideoLoop();
+    showPausedGateVideo();
 
     if (searchBtn) {
         searchBtn.addEventListener("click", startCandidateSearch);
