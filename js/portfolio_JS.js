@@ -88,6 +88,29 @@ function setIntroStage(stageName) {
     bg.className = "Intro_Stage_Bg Intro_Stage_Bg--" + stageName;
 }
 
+// Types text into Intro_Status one character at a time (searching animation)
+function typeIntroStatus(text, doneFn) {
+    var status = document.getElementById("Intro_Status");
+    if (!status) {
+        if (doneFn) { doneFn(); }
+        return;
+    }
+    status.classList.add("Intro_Status--Blink");
+    status.textContent = "";
+    var i = 0;
+    function tick() {
+        if (i <= text.length) {
+            status.textContent = text.slice(0, i);
+            i += 1;
+            introLater(tick, 70);
+        } else if (doneFn) {
+            doneFn();
+        }
+    }
+    tick();
+}
+
+
 // Shows the Quiet Medtech portfolio and hides the intro splash
 function showPortfolio() {
     clearIntroTimers();
@@ -129,36 +152,51 @@ function startCandidateSearch() {
     var status = document.getElementById("Intro_Status");
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Hide the gate buttons once search starts
-    if (gate) {
-        gate.style.display = "none";
+    // Hide Search button; keep Skip during Searching
+    var searchBtn = document.getElementById("Intro_Search_Button");
+    if (searchBtn) {
+        searchBtn.style.display = "none";
     }
 
-    // Reduced motion: jump to found art briefly, then portfolio
+    // Reduced motion: brief found, then portfolio
     if (reduceMotion) {
         setIntroStage("Found");
-        if (status) { status.textContent = "Mirwais Sarwary found"; }
-        introLater(showPortfolio, 700);
+        if (status) {
+            status.classList.remove("Intro_Status--Blink");
+            status.textContent = ""; // found.jpg carries the label
+        }
+        introLater(showPortfolio, 900);
         return;
     }
 
-    // Step 1: Searching snapshot
+    // Step 1: Searching snapshot + typed/flashing Searching...
     setIntroStage("Searching");
-    if (status) { status.textContent = "Searching..."; }
-
-    // Step 2: Found snapshot
-    introLater(function () {
-        setIntroStage("Found");
-        if (status) { status.textContent = "Mirwais Sarwary found"; }
-
-        // Step 3: Zoom / transition snapshot
+    typeIntroStatus("Searching...", function () {
+        // Hold on Searching longer (Skip is always available before this starts)
         introLater(function () {
-            setIntroStage("Zoom");
+            // Soft flash cycle: clear and re-type once more for motion
+            typeIntroStatus("Searching...", function () {
+                introLater(function () {
+                    // Step 2: Found
+                    setIntroStage("Found");
+                    if (status) {
+                        status.classList.remove("Intro_Status--Blink");
+                        status.textContent = ""; // found.jpg carries the label
+                    }
 
-            // Step 4: open Quiet Medtech portfolio
-            introLater(showPortfolio, 1100);
-        }, 1100);
-    }, 1400);
+                    // Step 3: Zoom / transition snapshot
+                    introLater(function () {
+                        setIntroStage("Zoom");
+                        if (status) {
+                            status.textContent = "";
+                        }
+                        // Step 4: open Quiet Medtech portfolio
+                        introLater(showPortfolio, 1600);
+                    }, 1600);
+                }, 2200); // extra hold after second Searching type-out
+            });
+        }, 2800); // hold after first Searching type-out
+    });
 }
 
 // Wire up the intro controls after the page HTML is ready

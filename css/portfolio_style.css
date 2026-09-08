@@ -1343,15 +1343,25 @@ body.Intro_Active {
     z-index: 3;
 }
 .Intro_Splash .Intro_Panel {
-    /* Push controls toward lower-center so they sit near snapshot CTAs */
-    margin-top: 18vh;
+    /* Center real controls on the clean gate background (no painted buttons) */
+    margin-top: 0;
 }
 .Intro_Status {
-    /* Snapshots carry the Searching/found typography; keep this for a11y */
-    color: transparent;
-    text-shadow: none;
-    min-height: 0;
-    height: 0;
-    overflow: hidden;
-    margin: 0;
+    min-height: 2.6rem;
+    margin: 0 0 1.25rem;
+    color: var(--qm-teal);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: clamp(1.35rem, 3.4vw, 2rem);
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 18px rgba(46, 196, 182, 0.35);
+}
+.Intro_Stage_Bg--Searching {
+    animation: Intro_Search_Pulse 2.2s ease-in-out infinite;
+}
+@keyframes Intro_Search_Pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.03); filter: brightness(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .Intro_Stage_Bg--Searching { animation: none; }
 }
