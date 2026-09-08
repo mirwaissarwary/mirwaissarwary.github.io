@@ -1,0 +1,1567 @@
+/*===============
+GENERAL STYLING
+=================*/
+/* Affects the entire document */
+html {
+    scroll-behavior: smooth;
+}
+
+/* About section – perfect 50/50 columns, same height, glass card over Matrix waterfall */
+.about-row {
+    display: flex;
+    margin-top: 60px;
+    gap: 0;
+}
+.about-col {
+    flex: 1;
+    padding: 0;
+    display: flex;
+    align-items: stretch; /* forces both columns same height */
+}
+.about-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Glass card – readable type (not vw-scaled body letter-spacing) */
+.about-card {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(8px);
+    padding: 36px 40px;
+    color: #fff !important;
+    height: 100%;
+    box-sizing: border-box;
+    letter-spacing: normal;
+}
+.about-card h1 {
+    color: #0f0;
+    font-size: 1.75rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+}
+.about-card p,
+.about-card .lead {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    letter-spacing: normal;
+    margin: 0 0 1rem;
+}
+.about-card .lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+.about-card a {
+    color: #0f0;
+    font-weight: bold;
+}
+.about-scroll {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+}
+#About {
+    letter-spacing: normal;
+}
+#About .about-col {
+    background: #0a0a0a;
+    align-items: center;
+    justify-content: center;
+}
+#About .Column_Images,
+#About .about-col img {
+    object-fit: contain; /* show more of the full artwork */
+    object-position: center center;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    min-height: 0;
+    display: block;
+}
+@media (max-width: 768px) {
+    .about-row { flex-direction: column; }
+    .about-scroll { max-height: none; overflow: visible; }
+    .about-card { padding: 24px 20px; }
+    .about-card h1 { font-size: 1.5rem; }
+    .about-card p, .about-card .lead { font-size: 1rem; }
+    #About .Column_Images, #About .about-col img { min-height: 0; width: 100%; height: auto; }
+}
+
+/* Body Section */
+body {
+    margin: 0%; /* This ensures our site is displayed across the entire browser screen */
+    opacity: 1; /* This with transition affects the page loading fade-in effect */
+    transition: 3s opacity; /*3sec fade-in effect */
+    letter-spacing: .2vw; /* vw is a relative measurement, 1vw is equal to 1% of the viewport width */
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
+    overflow-x: hidden; /*prevents the horizontal scroll bar from appearing when the quote is hovered over*/
+    user-select: none; /*prevents the text on the webpage from being highlighted by the user */
+}
+
+/*For the fade-In effect when the page is loaded*/
+body.fade-out {
+    opacity: .1; /*opacity level at the start of the load*/
+}
+
+/* Heading 1 Elements */
+h1 {
+    text-transform: uppercase;
+    font-family: "Trebuchet MS", Optima;
+    text-align: center; /* Centering all h1 elements */
+    margin-top: 3%;
+    color: rgb(0, 0, 0);
+}
+
+/* Heading 1 Element: hover effect */
+h1:hover {
+    filter: grayscale(5%); /*adds a slightly gray filter to the h1 when hovered over*/
+    transform: scale(1.03); /*increases the size*/
+    transition: transform 1s; /*1 sec transformation*/
+}
+
+/*Styling for Portfolio Title Text*/
+.white-text {
+    color: #fff;
+    text-shadow: 0px 0px 40px #39FF14, 3px 3px 45px #27ff01;
+}
+
+/* Paragraph elements */
+p, ul, li {
+    font-family: Perpetua, Rockwell Extra Bold;
+    text-align: left; /* align text within paragraph elements */
+    letter-spacing: .1vw; /* This expands the text slightly */
+    font-size: 2.5vw; /*relative font size, 2.5% if view width*/
+    padding-left: 1vw; /* Adds padding to the left of the paragraph element */
+    padding-right: 1vw; /* Adds padding to the right of the paragraph element */
+}
+
+ul {
+    text-align: left;
+    text-decoration: none;
+}
+
+/* Paragraph element hover effect */
+p:hover, ul:hover {
+    transition: transform .5s;
+    transform: scale(1.01);
+}
+
+/*Center class - used for all centered text*/
+.center {
+    text-align: center;
+}
+.center:hover {
+    text-shadow: 0px 0px 40px #39FF14, 3px 3px 45px #27ff01;
+    transition: transform 2s;
+    transform: scale(1.03);
+}
+
+/* Anchor elements */
+a {
+    color: rgb(69, 116, 203); /* This ensures all links are blue */
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Quotation elements */
+q {
+    font-style: italic;
+}
+
+/* Image elements */
+img {
+    filter: brightness(70%); /* This rids our pictures of 75% of their color */
+    border-radius: 8px; /* Gives all images slightly rounded corners */
+    max-width: 100%; /* Ensures all images stay within the width of their container */
+    max-height: 100%; /* Ensures all images stay within the height of all images */
+    display: block; /* By specifying block display we can ensure our images are able to be centered */
+    margin: auto auto auto auto; /*this centers all images */
+}
+
+/* Image element hover effects */
+img:hover {
+    filter: brightness(100%); /* Brings back most of the image's color when hovered over */
+}
+
+/* Styling for footer element */
+footer {
+    padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
+    background-image: linear-gradient(to right,white,blue,white, blue, rgb(19, 19, 51));
+    color: green;
+}
+
+/*====================
+END of GENERAL STYLING
+======================*/
+
+/*======================
+Styling text options
+========================*/
+/*glow effect on text*/
+.glow {
+    opacity: 1;
+    font-size: 5em;
+    color: #fff;
+    font-variant-caps: small-caps;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000fe6, 0 0 40px #e60073, 0 0 50px #d7e600, 0 0 60px #00a5e6, 0 0 70px #000fe6;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #39FF14, 0 0 40px #39FF14, 0 0 50px #39FF14, 0 0 60px #39FF14, 0 0 70px #39FF14, 0 0 80px #39FF14;
+    }
+}
+/* This applies the effect below for Safari 4.0 - 8.0 */
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #000fe6, 0 0 40px #e60073, 0 0 50px #d7e600, 0 0 60px #00a5e6, 0 0 70px #000fe6;
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #39FF14, 0 0 40px #39FF14, 0 0 50px #39FF14, 0 0 60px #39FF14, 0 0 70px #39FF14, 0 0 80px #39FF14;
+    }
+}
+
+/*retro text*/
+.arrow {
+    font: italic bold Georgia, serif;
+    font-size: 2vw;
+    color: white;
+    text-shadow: 0px 0px 40px #39FF14, 3px 3px 45px #27ff01;
+    padding-bottom: 0;
+}
+/* Senior-level navbar title – clean, professional, Matrix vibe */
+.navbar-title {
+    float: right;
+    padding: 14px 16px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    letter-spacing: 0.4vw;
+    color: white;
+    text-shadow: 0 0 20px #0f0;
+}
+.name {
+    animation: blink 1s steps(5, start) infinite;
+}
+@keyframes blink {
+    to { visibility: hidden; }
+}
+.dash {
+    font: italic bold Georgia, serif;
+    font-size: 2vw;
+    color: white;
+    text-shadow: 0px 0px 40px #39FF14, 3px 3px 45px #27ff01;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    /* This applies the effect below for Safari 4.0 - 8.0 */
+    -webkit-animation-name: blink;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+}
+@keyframes blink {
+    to {
+        opacity: 0.0;
+    }
+}
+/* This applies the effect below for Safari 4.0 - 8.0 */
+@-webkit-keyframes blink {
+    to {
+        opacity: 0.0;
+    }
+}
+
+/*==========================
+End of Styling text options
+=============================*/
+
+/*================================
+****** NAVBAR STYLING ******
+==================================*/
+.Navbar {
+    overflow: hidden; /* This ensures that any content that overflows beyond the boundary of our nav bar is not displayed */
+    background-image: linear-gradient(black,rgb(5, 57, 5),rgba(244, 239, 239, 0.578), rgb(5, 57, 5), black);
+    position: fixed; /* This keeps the navbar at the top of the screen as we scroll */
+    top: 0; /* This ensures no space is displayed above the navbar */
+    width: 100%; /* This makes the navbar span the entire width of the page */
+    z-index: 1; /* This ensures other elements don't display over the navbar */
+    -webkit-animation: moveNav 5s; /* This applies the moveNav animation below for Safari 4.0 - 8.0 */
+    animation: moveNav 5s; /* This applies the moveNav animation for all other browsers */
+}
+
+/* moveNav animation effect for moving the nav bar in from the left of the screen */
+@keyframes moveNav {
+    from {left: -100vw;} /* The navbar is starting off screen to the left */
+    to {left: 0vw;} /* This moves the navbar into place on the screen */
+}
+
+/* Navbar links */
+.Navbar a {
+    float: left; /* This specifies that the text floats on the left on the navbar */
+    display: block; /* This ensures that other text will be displayed on the same line or row, instead of a new line */
+    color: white; /* This is the font color for text on our navbar */
+    text-shadow: 0px 0px 40px #39FF14, 0px 0px 40px #39FF14;
+    padding: .75vw 1vw; /* This adds padding around our text */
+    text-decoration: none; /* This gets rid of the underlines under the text on our navbar */
+    font-family: Avant Garde, Helvetica;
+    font-size: 1.5vw;
+    text-align: center; /* This centers the text within its container */
+    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
+    -webkit-animation: moveNavText 5.75s; /* Animation for Safari 4.0 - 8.0 */
+    animation: moveNavText 5.75s; /* Applies the moveNavText animation for 5.75s */
+}
+
+/* moveNavText animation effect for moving the navbar text from above the view to the navbar */
+@keyframes moveNavText {
+    from {top: -100vw;} /* This sets the navbar text 100% above the viewport */
+    to {top: 0vw;} /* This lowers the navbar text onto the navbar */
+}
+
+/* Navbar hover effects */
+.Navbar a:hover {
+    background-color: #f4f4f4; /* Defines the background color that will display when you hover over the link */
+    color: black; /* This defines the font color that will display when navbar a elements are hovered over */
+    font-weight: bold; /* This makes the text on the navbar bold when hovered over */
+    cursor: pointer;
+    transition: 0.5s ease-in; /* Creates a smooth transition for the hover trigger */
+    border-radius: 13px;
+}
+
+/* Navbar home button */
+.Navbar a.active { /* This targets the a element on the navbar with the "active" class */
+    background-image: linear-gradient(black,gray,white);
+    border-radius: 13px;
+}
+
+/*================================
+****** END of NAVBAR STYLING ******
+==================================*/
+
+/*================================
+****** Video STYLING ******
+==================================*/
+/* Formatting for background video */
+#Main_Video {
+    position: fixed; /* This fixes the video to the page */
+    right: 0; /* This ensures there is no space between the edge of the video and the edge of the page */
+    bottom: 0; /* This ensures no space between the bottom of the video and the bottom of the page */
+    min-width: 100%; /* This ensures the video is displayed across the full width of the page */
+    z-index: -1; /* This places the video behind the other elements on the page */
+    opacity: .28; /* softer Matrix wash behind content */
+}
+
+/* Texts over the video */
+.Video_Text {
+    background: rgba(0, 0, 0, 0.7); /* This provides a semi-transparent background for the text to sit over */
+    color: white; /* Makes the font color white */
+    width: 100%; /* Ensures the video-text container fills the width of the video */
+    height: 100vh; /* This ensures the video-text container fills the height of the viewport so that the slideshow is not partially displayed */
+    padding-top: 2vh; /* This adds padding around the video-text container so that the background goes slightly beyond the text */
+    position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
+    -webkit-animation: moveVideoText 5.75s; /* Animation for Safari 4.0 - 8.0 */
+    animation: moveVideoText 5.75s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
+}
+
+/* This animation effect causes the overlay video text to move up from the bottom of the page upon page load */
+@keyframes moveVideoText {
+    from {top: -100vw;} /* This sets the position of the video text to above the viewport */
+    to {top: 0vw;} /* This moves the video text to the normal positioning on the viewport */
+}
+
+/*================================
+****** END OF VIDEO STYLING ******
+==================================*/
+
+/*================================
+****** SLIDESHOW STYLING ******
+==================================*/
+#Slideshow_Background {
+    background: rgba(0, 0, 0, 0.5); /* This creates a slightly transparent white background that's placed over the video in the background */
+}
+
+.mySlides {
+    display: none; /* This prevents the images from being displayed, we will use JS to display these */
+}
+
+/*Slideshow section and container */
+#Slideshow_Container {
+    width: 50vw;
+    max-width: 400px;
+    height: auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    position: relative; /* This sets the container relative to its normal positioning */
+    margin: auto; /* This will horizontally center the container on the page */
+    margin-bottom: .5vh;
+}
+
+/*Removing the anchor underline for the next and previous buttons*/
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+/*Images contained within the slideshow*/
+.Slideshow_Images {
+    vertical-align: middle; /*centers images vertically within the Slideshow_Container*/
+    height: auto; /*height of the images are auto adjusted based on the content*/
+    box-shadow: 0px 0px 70px 12px rgb(227, 230, 222);
+    width: 100%;
+    border-radius: 50px;
+}
+
+/*Images contained within the slideshow*/
+.Column_Images {
+    vertical-align: middle; /*centers images vertically within the Slideshow_Container*/
+    height: auto; /*height of the images are auto adjusted based on the content*/
+    box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75);
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 70px;
+}
+
+/*Next and previous buttons*/
+.Previous, .Next {
+    cursor: pointer;
+    position: absolute; /* This makes the next and previous buttons positioned relative to the slideshow container */
+    top: 50%; /*this moves the position to the middle of the Slideshow_Container*/
+    width: auto;
+    padding: 1vw;
+    color: #12294b;
+    font-weight: bold;
+    font-size: 2vw;
+    border-radius: 0 3px 3px 0; /*top and bottom corners rounded*/
+    user-select: none;
+    transition: 0.6s ease; /*for the hover transition*/
+}
+
+/*Positioning the Next button to the right side*/
+.Next {
+    right: 0; /* This moves the next button to the right side of the slideshow container */
+    border-radius: 3px 0 0 3px; /* This changes the border radius on the next button to the top and bottom left of the button */
+}
+
+.Next:hover, .Previous:hover {
+    background-color: rgba(4, 251, 66, 0.8);
+    color: white;
+}
+
+/*Slidshow text*/
+.text {
+    color: white;
+    position: absolute; /*this places text within the image*/
+    bottom: 0; /*positioned at the bottom of the image*/
+    width: 100%;
+    text-align: center;
+    font-family: perpetua, Rockwell Extra Bold;
+    letter-spacing: .1vw; /*slight even spacing between letters*/
+    font-size: 1.5vw;
+    border-radius: 0px 0px 7px 7px; /*rounding bottom left and bottom right corners*/
+}
+
+.text:hover {
+    transform: scale(1.1);
+    color: white;
+    font-weight: bold;
+    background-color: rgba(57, 255, 20,.5);
+}
+
+/*Styling of the dots */
+.dot {
+    cursor: pointer;
+    height: 2vw; /*sized relative to view width*/
+    width: 2vw;
+    margin: .5vw;
+    background-color: white;
+    border-radius: 50%;
+    display: inline-block; /*aligns the dots to sit next to each other*/
+    transition: background-color 0.6s ease;
+    z-index: 1; /*to be displayed above the other elements*/
+    padding-bottom: 3vh;
+    margin-bottom: 9vh;
+}
+
+.active, .dot:hover {
+    background-color: rgb(17, 204, 17); /*dot color when hovered or set to active*/
+    transform: scale(1.3);
+}
+
+/*Fading animation for Slideshow*/
+.fade {
+    animation-name: fade; /*Fade animation is defined below*/
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;/* Same as above for Safari 4.0-8.0 */
+    -webkit-animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+@-webkit-keyframes fade { /* Same as above for Safari 4.0-8.0 */
+    from {opacity: .4;}
+    to {opacity: 1;}
+}
+
+/*================================
+****** END OF SLIDESHOW STYLING ******
+==================================*/
+
+/*================================
+****** TABLE STYLING ******
+==================================*/
+/*this section covers the styling of the columns and rows within the table */
+* { /* The asterisk is a universal selector that applies this effect to all elements on the page */
+    box-sizing: border-box; /* This creates a box with a border within which we will place most of our text */
+}
+
+.Column_1 {
+    float: left;
+    width: 50%; /* This ensures the column takes up half of the page width */
+    padding: 1.6%;
+    height: auto; /* Allows card to grow with content */
+    min-height: 150px; /* Keeps original minimum for small content */
+    background-image: linear-gradient(to right, rgb(207, 175, 175),white,rgb(207, 175, 175));
+}
+
+.Column_2 {
+    float: left;
+    width: 50%;
+    padding: 1.6%;
+    height: auto; /* Allows column to grow with content */
+    min-height: 150px;
+    background-image: linear-gradient(to right, rgb(8, 47, 31),rgb(0, 255, 55),white, blue, rgb(8, 47, 31));
+}
+
+/* This inserts something after the content of selected elements (in this case the elements with class "Row") */
+.Row:after {
+    content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
+    display: table; /* The display property specifies the type of display behavior; the table value tells the browser to treat the element as a table */
+    clear: both; /* This clears any other elements from floating on the left or the right of an element */
+}
+
+/*================================
+****** END OF TABLE STYLING ******
+==================================*/
+
+/*================================
+****** CONTACT FORM STYLING ******
+==================================*/
+.Pop_Up_Button {
+    position: fixed;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw;
+    background-color: rgba(4, 251, 66, 0.3);
+    color: white;
+    border: none;
+    cursor: pointer;
+    animation: movePopup 5s;
+    -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
+    border-radius: 5px;
+}
+
+.Pop_Up_Button:hover {
+    border-color: green;
+    border-radius: 19px;
+    color: rgb(4, 251, 66);
+    background-color: white;
+}
+
+/*movePopup animation moves the button*/
+@keyframes movePopup {
+    from{right: -40vw;}
+    to {right: 1.75vw;}
+}
+@-webkit-keyframes movePopup {
+    from{right: -40vw;}
+    to {right: 1.75vw;}
+}
+
+/*Styling for the contact form*/
+.form-popup {
+    z-index: 10; /*above all other elements*/
+    display: none;
+    position: fixed;
+    bottom: .5vw;
+    right: .5vw;
+}
+
+/*Form Styling*/
+.form-container {
+    max-width: 50vw;
+    padding: 1vw;
+    background-color: white;
+    border-radius: 13px 13px 0 0;
+}
+
+/* input[type=text] targets all text input sections of the contact form */
+.form-container input[type=text] {
+    width: 100%; /* Each input box covers the full width of the container */
+    padding: .9vw; /* Adds padding within the text box */
+    border: 1px solid #ccc; /* Setting a solid border and its color */
+    border-radius: 4px; /* Slightly rounds the corners of the text box border */
+    box-sizing: border-box; /* This creates a box with a border around the contact form input boxes */
+    margin: .6vw 0 .6vw 0;
+    resize: vertical; /* This allows the user to resize the text boxes vertically */
+    font-size: 2vw;
+    font-family: Perpetua, Rockwell Extra Bold;
+}
+
+/* Hover effects for input boxes */
+.form-container input[type=text]:hover {
+    box-shadow: 0 0 5px #00004d inset; /* This creates a blue shadow in the text box when hovered over by the user */
+}
+
+/*General styling for all buttons*/
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 1.5vw;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+}
+
+/*hover effect for contact and submit buttons*/
+button:hover, .form-container .btn:hover {
+    color: #27ff01;
+    background-color: white;
+    border-color: #27ff01;
+    font-weight: bold;
+    font-size: larger;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-radius: 13px;
+}
+
+/*Submit button*/
+.form-container .btn {
+    background-color: rgb(15, 214, 15);
+    color: #00004d;
+    border-color: green;
+    margin-bottom: 1vh;
+}
+
+/*close button*/
+.form-container .cancel {
+    background-color: #e60073;
+    color: black;
+    border-color: red;
+}
+
+/*hover effect*/
+.form-container .cancel:hover {
+    color: #e60073;
+    font-weight: bold;
+    font-size: larger;
+    background-color: white;
+    border-color: red;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-radius: 13px;
+}
+
+/*================================
+**END OF CONTACT FORM STYLING **
+==================================*/
+
+/**********************************
+Media Query Section
+***********************************/
+/*Media rules for paragraph font size for different screen sizes*/
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+    .Column_Images{
+        margin-top: 15vh;
+    }
+}
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+    .Column_Images{
+        margin-top: 10vh;
+    }
+}
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 3vw;
+    }
+    .Column_Images{
+        margin-top: 7vh;
+    }
+ 
+}
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+    .Column_Images{
+        margin-top: 5vh;
+    }
+}
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+    .Column_Images{
+        margin-top: 3vh;
+    }
+}
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.15vw;
+    }
+}
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.15vw;
+    }
+}
+
+/*Media rule for navbar links for different screen sizes*/
+/* Screens 1080px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        font-size: 2.5vw;
+    }
+}
+
+/* Media rules to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 2.75vw;
+    }
+    .white-text {
+        font-size: 3vw;
+    }
+}
+
+/* Media rules to increase the size of the columns for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column_1, .Column_2 {
+        min-height: 550px;
+    }
+}
+
+/*Media rule to remove margin-top from h1 elements for extra large screens (so that the paragraph text fits in the column*/
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
+
+/*********************************
+End of Media Query Section
+**********************************/
+
+/*===== Selected projects (Sep 2026 brand update) =====*/
+.projects-section {
+    max-width: 1100px;
+    margin: 60px auto 40px;
+    padding: 0 24px 40px;
+}
+.projects-section h1 {
+    color: #0f0;
+    margin-bottom: 8px;
+}
+.projects-intro {
+    color: #ccc;
+    font-size: 1.1rem;
+    letter-spacing: normal;
+    margin-bottom: 28px;
+}
+
+.projects-github {
+    margin: 0.4rem 0 1.4rem;
+    color: var(--qm-muted, #9aa8bc);
+    letter-spacing: normal;
+}
+.projects-github a {
+    color: var(--qm-teal, #2ec4b6);
+    font-weight: bold;
+}
+.project-card--github {
+    border-color: var(--qm-teal, #2ec4b6);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+.project-card {
+    display: block;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #0f0;
+    border-radius: 8px;
+    padding: 20px 18px;
+    color: #fff;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(0, 255, 0, 0.35);
+}
+.project-card h2 {
+    color: #0f0;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    margin: 0 0 10px;
+    text-transform: none;
+}
+.project-card p {
+    color: #ddd;
+    font-size: 0.95rem;
+    letter-spacing: normal;
+    line-height: 1.45;
+    margin: 0;
+}
+.hero-links a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero-links a:hover {
+    text-decoration: underline;
+}
+.form-direct {
+    font-size: 0.9rem;
+    letter-spacing: normal;
+    margin: 0 0 12px;
+}
+.form-direct a { color: #0f0; }
+.optional {
+    font-weight: normal;
+    font-size: 0.85em;
+    color: #aaa;
+}
+@media (max-width: 768px) {
+    .Navbar a { font-size: 0.85rem; }
+    .Video_Text .glow { font-size: 2.4em !important; }
+    .about-row { flex-direction: column !important; }
+    .about-scroll { max-height: none; overflow: visible; }
+}
+
+/*===== Mobile nav + contact UX (Sep 2026) =====*/
+html {
+    scroll-padding-top: 72px; /* sticky navbar offset for in-page anchors */
+}
+
+.Navbar {
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: visible;
+}
+
+.Navbar a {
+    float: none;
+}
+
+.navbar-title {
+    margin-left: auto;
+}
+
+.form-popup {
+    z-index: 200;
+}
+
+.form-container label {
+    display: block;
+    letter-spacing: normal;
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    color: #111;
+}
+
+.form-container input[type=text],
+.form-container input[type=email],
+.form-container input[type=tel],
+.form-container textarea {
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    margin: 0.35rem 0 0.55rem;
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-family: Helvetica, Arial, sans-serif;
+    resize: vertical;
+}
+
+.form-container h1 {
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    margin: 0.2rem 0 0.6rem;
+    color: #111;
+}
+
+.form-container .btn,
+.form-container .cancel {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    padding: 0.75rem 1rem;
+}
+
+.form-direct {
+    color: #333;
+    word-break: break-word;
+}
+.form-direct a { color: #0a7a0a; }
+
+@media screen and (max-width: 900px) {
+    html {
+        scroll-padding-top: 110px;
+    }
+
+    .Navbar {
+        padding: 4px 6px 6px;
+    }
+
+    .Navbar a {
+        width: auto !important;
+        flex: 0 0 auto;
+        font-size: 0.8rem !important;
+        padding: 0.45rem 0.55rem !important;
+        text-shadow: none;
+        letter-spacing: normal;
+    }
+
+    .navbar-title {
+        display: none; /* free space; reduce wrap on phones */
+    }
+
+    .Pop_Up_Button {
+        width: auto;
+        min-width: 7.5rem;
+        right: 12px;
+        bottom: 12px;
+        padding: 0.65rem 0.9rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+    }
+
+    .form-popup {
+        inset: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.55);
+        overflow-y: auto;
+    }
+
+    .form-popup.is-open,
+    .form-popup[style*="block"] {
+        display: flex !important;
+    }
+
+    .form-container {
+        max-width: 100%;
+        width: min(420px, 100%);
+        margin: 0 auto;
+        padding: 1.1rem 1rem 1.2rem;
+        border-radius: 12px;
+        max-height: calc(100vh - 32px);
+        overflow-y: auto;
+    }
+
+    #About,
+    #Projects,
+    #Collaborate,
+    #Skills,
+    #Contact,
+    .projects-section {
+        scroll-margin-top: 110px;
+    }
+
+    .projects-intro {
+        text-shadow: 0 1px 2px #000;
+        color: #eee;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    .form-popup {
+        bottom: 16px;
+        right: 16px;
+        left: auto;
+        top: auto;
+    }
+    .form-container {
+        max-width: 380px;
+        width: 380px;
+        padding: 1.1rem 1.15rem;
+    }
+    .Pop_Up_Button {
+        width: auto;
+        min-width: 8rem;
+        right: 18px;
+        bottom: 18px;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/*====================================================
+  QUIET MEDTECH THEME + INTRO SPLASH (Sep 2026)
+  Same file / comment style as the rest of this sheet.
+  Teal accents replace neon green on the ROOT site only.
+====================================================*/
+
+:root {
+    --qm-navy: #0b1220;
+    --qm-charcoal: #121a2b;
+    --qm-teal: #2ec4b6;
+    --qm-teal-dark: #1f9e93;
+    --qm-text: #e8eef7;
+    --qm-muted: #9aa8bc;
+}
+
+/* Body background — calm navy instead of Matrix feel */
+body.Background {
+    background-color: var(--qm-navy);
+    background-image: linear-gradient(180deg, #0b1220 0%, #121a2b 55%, #0b1220 100%);
+}
+
+/* While intro gate/animation is active, hide scroll behind it */
+body.Intro_Active {
+    overflow: hidden;
+}
+
+/*----- Portfolio_Main visibility -----*/
+.Portfolio_Main--Hidden {
+    display: none;
+}
+.Portfolio_Main {
+    min-height: 100vh;
+}
+
+/*----- Quiet Medtech navbar -----*/
+.Navbar {
+    background-image: none;
+    background-color: rgba(11, 18, 32, 0.94);
+    border-bottom: 1px solid rgba(46, 196, 182, 0.25);
+}
+.Navbar a {
+    text-shadow: none;
+    color: var(--qm-text);
+}
+.Navbar a:hover {
+    background-color: rgba(46, 196, 182, 0.15);
+    color: var(--qm-teal);
+}
+.navbar-title .arrow,
+.navbar-title .name {
+    color: var(--qm-teal);
+    text-shadow: none;
+}
+
+/*----- Hero (Frame 3 continuity: medical-equipment bg + navy overlay) -----*/
+.Hero_Section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12vh 6vw 8vh;
+    box-sizing: border-box;
+    position: relative;
+    background-color: var(--qm-navy);
+    /* Frame 3 continuity: solid navy left, equipment only on the right — no baked-in text/pills */
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(11, 18, 32, 0.98) 0%,
+            rgba(11, 18, 32, 0.88) 38%,
+            rgba(11, 18, 32, 0.45) 68%,
+            rgba(11, 18, 32, 0.22) 100%
+        ),
+        url("../images/hero-medtech-bg.jpg?v=earth11");
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+.Hero_Text {
+    max-width: 920px;
+    width: 100%;
+    letter-spacing: normal;
+    position: relative;
+    z-index: 1;
+}
+.Hero_Name {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    color: #fff;
+    font-weight: bold;
+    margin: 0 0 0.35rem;
+    letter-spacing: normal;
+}
+.Hero_Title {
+    font-size: clamp(1.25rem, 2.6vw, 1.85rem);
+    color: var(--qm-teal);
+    margin: 0 0 1rem;
+    letter-spacing: normal;
+}
+.Hero_Sub {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: var(--qm-text);
+    margin: 0 auto 1.5rem;
+    max-width: 46rem;
+    line-height: 1.6;
+    letter-spacing: normal;
+}
+.Hero_Pills {
+    list-style: none;
+    margin: 0 0 1.75rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.1rem 1.6rem;
+}
+.Hero_Pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 7.5rem;
+    max-width: 9.5rem;
+}
+.Hero_Pill_Icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    border: 2px solid var(--qm-teal);
+    color: var(--qm-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    line-height: 1;
+    background: rgba(11, 18, 32, 0.45);
+    box-shadow: 0 0 12px rgba(46, 196, 182, 0.18);
+}
+.Hero_Pill_Label {
+    font-size: 0.82rem;
+    line-height: 1.25;
+    text-align: center;
+    color: var(--qm-text);
+    letter-spacing: normal;
+}
+.Hero_Quote {
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: #8fd9d1;
+    line-height: 1.55;
+    letter-spacing: normal;
+}
+.Hero_Quote_Attr {
+    font-size: 1rem;
+    color: var(--qm-muted);
+    margin: 0.5rem 0 0.25rem;
+    letter-spacing: normal;
+}
+.hero-links {
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+    letter-spacing: normal;
+}
+.hero-links a {
+    color: var(--qm-teal);
+}
+
+/*----- About / projects teal accents -----*/
+.about-card h1,
+.projects-section h1,
+#Collaborate h1,
+.collaborate-card h1 {
+    color: var(--qm-teal) !important;
+}
+.about-card a,
+.project-card h2 {
+    color: var(--qm-teal) !important;
+}
+.project-card {
+    border-color: rgba(46, 196, 182, 0.55) !important;
+    background: rgba(11, 18, 32, 0.85) !important;
+}
+.project-card:hover {
+    box-shadow: 0 0 18px rgba(46, 196, 182, 0.3) !important;
+}
+.archive-link {
+    color: var(--qm-muted);
+}
+.archive-link:hover {
+    color: var(--qm-teal);
+}
+
+/* Contact button Quiet Medtech */
+.Pop_Up_Button {
+    background-color: rgba(46, 196, 182, 0.35);
+    color: #fff;
+    border: 1px solid rgba(46, 196, 182, 0.5);
+}
+.Pop_Up_Button:hover {
+    color: var(--qm-teal-dark);
+    background-color: #fff;
+    border-color: var(--qm-teal);
+}
+
+/*====================================================
+  INTRO SPLASH — gate + search animation
+====================================================*/
+.Intro_Splash {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--qm-navy);
+    overflow: hidden;
+}
+
+/* Soft globe in the background */
+.Intro_Globe {
+    position: absolute;
+    width: min(70vw, 520px);
+    height: min(70vw, 520px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    background-image: url("../images/intro-globe.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.28;
+    transition: transform 1.2s ease-in, opacity 0.6s ease;
+    pointer-events: none;
+}
+
+/* Globe spins only after Search is clicked */
+.Intro_Globe.Intro_Globe--Spinning {
+    opacity: 0.45;
+    animation: Intro_Globe_Spin 12s linear infinite;
+}
+.Intro_Globe.Intro_Globe--Zoom {
+    opacity: 0.55;
+    animation: none;
+    transform: translate(-50%, -50%) scale(2.4);
+}
+
+@keyframes Intro_Globe_Spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.Intro_Panel {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    letter-spacing: normal;
+    padding: 1.5rem;
+}
+
+.Intro_Gate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Intro_Search_Button {
+    width: auto;
+    min-width: 16rem;
+    padding: 0.85rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--qm-teal);
+    color: #06201d;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.05rem;
+    font-weight: bold;
+    letter-spacing: normal;
+    cursor: pointer;
+}
+.Intro_Search_Button:hover {
+    background-color: #3fd4c5;
+    color: #06201d;
+    border-radius: 8px;
+}
+
+.Intro_Skip_Link {
+    color: #c5d0de;
+    font-size: 1rem;
+    letter-spacing: normal;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.Intro_Skip_Link:hover {
+    color: #fff;
+}
+
+.Intro_Status {
+    min-height: 2.5rem;
+    margin: 0 0 1.2rem;
+    color: var(--qm-teal);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: normal;
+}
+
+/* Blinking cursor after Searching... */
+.Intro_Status--Blink::after {
+    content: "|";
+    margin-left: 2px;
+    animation: Intro_Cursor_Blink 0.9s step-end infinite;
+    color: var(--qm-teal);
+}
+@keyframes Intro_Cursor_Blink {
+    50% { opacity: 0; }
+}
+
+/* Fade splash away when done */
+.Intro_Splash.Intro_Splash--Hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .Intro_Globe.Intro_Globe--Spinning {
+        animation: none;
+    }
+    .Intro_Globe.Intro_Globe--Zoom {
+        transition: none;
+    }
+    .Intro_Status--Blink::after {
+        animation: none;
+    }
+}
+
+
+/*====================================================
+  INTRO EARTH VIDEO + SNAPSHOT STAGES (Sep 2026)
+  gate-earth.mp4 loops behind real Search/Skip; Searching...
+  flashes in the foreground; zoom.jpg after Candidate found.
+====================================================*/
+.Intro_Globe { display: none !important; } /* old globe asset retired */
+
+/* Full-bleed Earth video behind the panel (z-index 1) */
+.Intro_Gate_Video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    background-color: #000;
+    pointer-events: none;
+}
+
+.Intro_Stage_Bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: #0b1220;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+/* Gate uses black (video is the look); other stages use snapshot JPGs */
+.Intro_Stage_Bg--Gate {
+    background-color: #000;
+    background-image: none;
+}
+.Intro_Stage_Bg--Searching {
+    background-image: none;
+    background-color: #000;
+}
+.Intro_Stage_Bg--Found {
+    background-image: none;
+    background-color: #000;
+}
+.Intro_Stage_Bg--Zoom {
+    background-image: url("../images/intro/zoom.jpg?v=earth7");
+}
+.Intro_Stage_Bg--Transition {
+    /* Frame 3 storyboard: California/Bay Area + Quiet Medtech hero */
+    background-image: url("../images/intro/transition-hero.jpg?v=earth7");
+}
+
+/* Panel and gate sit above the video */
+.Intro_Panel {
+    z-index: 2;
+}
+.Intro_Splash .Intro_Gate {
+    position: relative;
+    z-index: 3;
+}
+.Intro_Splash .Intro_Panel {
+    /* Center real controls on the clean gate background (no painted buttons) */
+    margin-top: 0;
+}
+.Intro_Status {
+    min-height: 2.6rem;
+    margin: 0 0 1.25rem;
+    color: var(--qm-teal);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: clamp(1.35rem, 3.4vw, 2rem);
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 18px rgba(46, 196, 182, 0.35);
+}
+
+/* Flashing Searching... while Earth video plays through once */
+.Intro_Status--Flash {
+    animation: Intro_Status_Flash 1.1s ease-in-out infinite;
+}
+@keyframes Intro_Status_Flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.28; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    /* Hide video; restore static gate.jpg for the reduced-motion path */
+    .Intro_Gate_Video {
+        display: none !important;
+    }
+    .Intro_Stage_Bg--Gate {
+        background-image: url("../images/intro/gate.jpg?v=earth7");
+        background-color: #0b1220;
+    }
+    .Intro_Stage_Bg--Found {
+        background-image: url("../images/intro/found.jpg?v=earth7");
+        background-color: #0b1220;
+    }
+    .Intro_Stage_Bg--Zoom {
+        background-image: url("../images/intro/zoom.jpg?v=earth7");
+    }
+    .Intro_Status--Flash {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+.footer-line {
+    margin: 0;
+    color: var(--qm-muted, #9aa8bc);
+    font-size: 0.95rem;
+    letter-spacing: normal;
+}
+.footer-line a {
+    color: var(--qm-muted, #9aa8bc);
+}
+.footer-line a:hover {
+    color: var(--qm-teal, #2ec4b6);
+}
+
+
+/*----- Collaborate: align text column with invite image -----*/
+.collaborate-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem 2rem;
+    padding: 3rem 4vw 2rem;
+    box-sizing: border-box;
+    background: transparent;
+}
+.collaborate-col {
+    flex: 1 1 280px;
+    min-width: 0;
+}
+.collaborate-col--text {
+    display: flex;
+    align-items: center;
+}
+.collaborate-card {
+    width: 100%;
+    max-width: 34rem;
+    margin: 0 auto;
+    padding: 1.25rem 1.1rem;
+    letter-spacing: normal;
+    background: rgba(11, 18, 32, 0.72);
+    border: 1px solid rgba(46, 196, 182, 0.35);
+    border-radius: 12px;
+}
+.collaborate-card h1 {
+    margin-top: 0;
+    text-align: left;
+}
+.collaborate-card p {
+    text-align: left;
+    color: var(--qm-text, #e8eef7);
+    line-height: 1.55;
+}
+.collaborate-links,
+.collaborate-cta {
+    text-align: left !important;
+}
+.collaborate-links a {
+    color: var(--qm-teal, #2ec4b6);
+}
+.collaborate-col--media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.collaborate-image {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.footer-buffer {
+    min-height: 18vh;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+@media screen and (max-width: 900px) {
+    .collaborate-row {
+        flex-direction: column;
+        padding: 2rem 5vw;
+    }
+    .collaborate-card {
+        max-width: none;
+    }
+    .collaborate-image {
+        max-width: 100%;
+    }
+}
+
