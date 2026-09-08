@@ -158,7 +158,7 @@ function showPausedGateVideo() {
 }
 
 // After the Search play-through ends:
-// Candidate found → Mirwais Sarwary found (hold 3s) → Zoom → portfolio
+// Candidate found → Mirwais Sarwary (name only) → Frame 3 transition (3s) → portfolio
 function afterSearchVideoEnds() {
     if (introFinished) { return; }
     introFinished = true;
@@ -173,19 +173,20 @@ function afterSearchVideoEnds() {
         video.style.display = "none";
     }
 
-    // Step 1: Candidate found
-    setIntroStage("Found");
+    // Step 1: Candidate found (clean dark stage; status is HTML text)
+    setIntroStage("Gate");
     setIntroStatus("Candidate found", false);
 
-    // Step 2: show name and hold 3 seconds, then zoom into the map
+    // Step 2: name only
     introLater(function () {
-        setIntroStatus("Mirwais Sarwary found", false);
+        setIntroStatus("Mirwais Sarwary", false);
 
+        // Step 3: Frame 3 storyboard screen, hold 3 seconds, then portfolio
         introLater(function () {
-            setIntroStage("Zoom");
-            // Keep the name visible during zoom, then open the portfolio
-            introLater(showPortfolio, 1600);
-        }, 3000);
+            setIntroStatus("", false);
+            setIntroStage("Transition");
+            introLater(showPortfolio, 3000);
+        }, 1500);
     }, 1200);
 }
 
@@ -250,14 +251,15 @@ function startCandidateSearch() {
         if (video) {
             video.style.display = "none";
         }
-        setIntroStage("Found");
+        setIntroStage("Gate");
         setIntroStatus("Candidate found", false);
         introLater(function () {
-            setIntroStatus("Mirwais Sarwary found", false);
+            setIntroStatus("Mirwais Sarwary", false);
             introLater(function () {
-                setIntroStage("Zoom");
-                introLater(showPortfolio, 1200);
-            }, 3000);
+                setIntroStatus("", false);
+                setIntroStage("Transition");
+                introLater(showPortfolio, 3000);
+            }, 1500);
         }, 900);
         return;
     }
