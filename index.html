@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mirwais Sarwary — biomedical / medical-device engineer. R&D, robotics-adjacent systems, and practical software (C#/.NET, Python).">
     <title>Mirwais Sarwary | Biomedical / Medical Device Engineer</title>
-    <link rel="stylesheet" href="./css/portfolio_style.css?v=earth26">
-    <script src="./js/portfolio_JS.js?v=earth26" defer></script>
+    <link rel="stylesheet" href="./css/portfolio_style.css?v=earth27">
+    <script src="./js/portfolio_JS.js?v=earth27" defer></script>
 </head>
 <body class="Background Intro_Active">
 
@@ -129,7 +129,59 @@
         </div>
     </div>
 
-    <!-- Skills – carousel kept; images to be updated (Sep 2026) -->
+    <div id="Projects" class="projects-section">
+        <h1>Selected projects</h1>
+        <p class="projects-intro center">
+            Device R&amp;D cases I can walk through in an interview — plus software
+            samples (telemetry, APIs) and this portfolio site.
+        </p>
+        <p class="projects-github center">
+            Code on GitHub:
+            <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">github.com/mirwaissarwary</a>
+        </p>
+        <div class="projects-grid">
+            <a class="project-card project-card--featured" href="./cases/midlabs.html">
+                <p class="project-tag">Devices · Ophthalmic</p>
+                <h2>MID Labs — MVE, UVE &amp; CIS</h2>
+                <p>Primary R&amp;D + PM on Millennium Vitrectomy Enhancer (pneumatic, 2500 cpm), cutter fail-safe design, and CIS fluid-control work — with UVE lineage context.</p>
+            </a>
+            <a class="project-card project-card--featured" href="./cases/procept.html">
+                <p class="project-tag">Devices · Surgical robotics</p>
+                <h2>PROCEPT — AquaBeam R&amp;D</h2>
+                <p>Consulting fixtures and FA/CAPA, then full-time handpiece manifold redesign (6→1, &gt;90% cost cut) that addressed field failures.</p>
+            </a>
+            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/device-telemetry-lab" target="_blank" rel="noopener">
+                <p class="project-tag">Devices · Python</p>
+                <h2>Device Telemetry Lab</h2>
+                <p>Simulated multi-axis telemetry, PI control, and session metrics — a clean robotics-adjacent Python sample you can clone and run.</p>
+            </a>
+            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/SecureTodoApi" target="_blank" rel="noopener">
+                <p class="project-tag">C# · .NET 8</p>
+                <h2>SecureTodoApi</h2>
+                <p>.NET 8 Minimal API with JWT auth, EF Core, and Swagger — production-minded API craft for tools that sit next to real systems.</p>
+            </a>
+            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/mirwaissarwary.github.io" target="_blank" rel="noopener">
+                <p class="project-tag">HTML · CSS · JS</p>
+                <h2>Portfolio website</h2>
+                <p>This site — intro gate, layout, and structure for a biomedical / medical-device engineer who also codes.</p>
+            </a>
+            <a class="project-card project-card--github" href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">
+                <p class="project-tag">Profile</p>
+                <h2>GitHub profile</h2>
+                <p>Pinned repos and README at github.com/mirwaissarwary — start with Device Telemetry Lab and SecureTodoApi.</p>
+            </a>
+        </div>
+        <p class="projects-archive center">
+            Earlier Tech Academy coursework and Matrix-era site:
+            <a class="archive-link" href="./archive/tta/">TTA portfolio archive</a>
+            ·
+            <a class="archive-link" href="https://github.com/mirwaissarwary/TTA-Live_Project-CsharpDotNet" target="_blank" rel="noopener">Theatre CMS</a>
+            ·
+            <a class="archive-link" href="https://github.com/mirwaissarwary/TTA-Live_Project-Python" target="_blank" rel="noopener">AppBuilder9000</a>
+        </p>
+    </div>
+
+    <!-- Skills – carousel (after Projects so photo/contact slide sits nearer Collaborate) -->
     <div id="Skills">
         <div id="Slideshow_Background">
             <div id="Slideshow_Container">
@@ -195,58 +247,6 @@
                 <span class="dot" onclick="currentSlide(11)"></span>
             </div>
         </div>
-    </div>
-
-    <div id="Projects" class="projects-section">
-        <h1>Selected projects</h1>
-        <p class="projects-intro center">
-            Device R&amp;D cases I can walk through in an interview — plus software
-            samples (telemetry, APIs) and this portfolio site.
-        </p>
-        <p class="projects-github center">
-            Code on GitHub:
-            <a href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">github.com/mirwaissarwary</a>
-        </p>
-        <div class="projects-grid">
-            <a class="project-card project-card--featured" href="./cases/midlabs.html">
-                <p class="project-tag">Devices · Ophthalmic</p>
-                <h2>MID Labs — MVE, UVE &amp; CIS</h2>
-                <p>Primary R&amp;D + PM on Millennium Vitrectomy Enhancer (pneumatic, 2500 cpm), cutter fail-safe design, and CIS fluid-control work — with UVE lineage context.</p>
-            </a>
-            <a class="project-card project-card--featured" href="./cases/procept.html">
-                <p class="project-tag">Devices · Surgical robotics</p>
-                <h2>PROCEPT — AquaBeam R&amp;D</h2>
-                <p>Consulting fixtures and FA/CAPA, then full-time handpiece manifold redesign (6→1, &gt;90% cost cut) that addressed field failures.</p>
-            </a>
-            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/device-telemetry-lab" target="_blank" rel="noopener">
-                <p class="project-tag">Devices · Python</p>
-                <h2>Device Telemetry Lab</h2>
-                <p>Simulated multi-axis telemetry, PI control, and session metrics — a clean robotics-adjacent Python sample you can clone and run.</p>
-            </a>
-            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/SecureTodoApi" target="_blank" rel="noopener">
-                <p class="project-tag">C# · .NET 8</p>
-                <h2>SecureTodoApi</h2>
-                <p>.NET 8 Minimal API with JWT auth, EF Core, and Swagger — production-minded API craft for tools that sit next to real systems.</p>
-            </a>
-            <a class="project-card project-card--featured" href="https://github.com/mirwaissarwary/mirwaissarwary.github.io" target="_blank" rel="noopener">
-                <p class="project-tag">HTML · CSS · JS</p>
-                <h2>Portfolio website</h2>
-                <p>This site — intro gate, layout, and structure for a biomedical / medical-device engineer who also codes.</p>
-            </a>
-            <a class="project-card project-card--github" href="https://github.com/mirwaissarwary" target="_blank" rel="noopener">
-                <p class="project-tag">Profile</p>
-                <h2>GitHub profile</h2>
-                <p>Pinned repos and README at github.com/mirwaissarwary — start with Device Telemetry Lab and SecureTodoApi.</p>
-            </a>
-        </div>
-        <p class="projects-archive center">
-            Earlier Tech Academy coursework and Matrix-era site:
-            <a class="archive-link" href="./archive/tta/">TTA portfolio archive</a>
-            ·
-            <a class="archive-link" href="https://github.com/mirwaissarwary/TTA-Live_Project-CsharpDotNet" target="_blank" rel="noopener">Theatre CMS</a>
-            ·
-            <a class="archive-link" href="https://github.com/mirwaissarwary/TTA-Live_Project-Python" target="_blank" rel="noopener">AppBuilder9000</a>
-        </p>
     </div>
 
     <div class="Row collaborate-row" id="Collaborate">
