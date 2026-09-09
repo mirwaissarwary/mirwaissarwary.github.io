@@ -1709,3 +1709,38 @@ button:hover.btn,
     color: #0b1220;
 }
 
+
+
+/*----- Phase 5: mobile nav + CONTACT clearance -----*/
+@media screen and (max-width: 900px) {
+    .Navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 0.35rem;
+        column-gap: 0.65rem;
+        padding: 0.55rem 0.75rem;
+    }
+    .Navbar a {
+        font-size: 0.78rem;
+        padding: 0.25rem 0.35rem;
+    }
+    /* Contact duplicates Collaborate — drop it on small screens to reduce wrap */
+    .Navbar a.nav-contact-dup {
+        display: none;
+    }
+    /* Floating CONTACT sits on content; Collaborate already has Send a message */
+    .Pop_Up_Button {
+        display: none !important;
+    }
+    .footer-buffer {
+        min-height: 10vh;
+    }
+    .Hero_Pills {
+        gap: 0.75rem 1rem;
+    }
+    .Hero_Pill {
+        min-width: 6.5rem;
+        max-width: 8.5rem;
+    }
+}
+
