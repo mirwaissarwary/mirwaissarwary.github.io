@@ -198,7 +198,7 @@ function afterSearchVideoEnds() {
     }, 1200);
 }
 
-// Shows the Quiet Medtech portfolio and hides the intro splash
+// Shows the portfolio and hides the intro splash
 function showPortfolio() {
     clearIntroTimers();
     introFinished = true;
