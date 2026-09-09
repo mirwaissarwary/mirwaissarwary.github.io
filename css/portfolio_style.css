@@ -1677,3 +1677,35 @@ body.Intro_Active {
     font-size: 0.98rem;
 }
 
+
+
+/*----- Contact form Quiet Medtech buttons (Phase 4) -----*/
+.form-container .btn {
+    background-color: rgba(46, 196, 182, 0.9) !important;
+    color: #0b1220 !important;
+    border-color: #2ec4b6 !important;
+}
+.form-container .btn:hover,
+button:hover.btn,
+.form-container .btn:hover {
+    color: #0b1220 !important;
+    background-color: #fff !important;
+    border-color: #2ec4b6 !important;
+}
+.form-container .cancel {
+    background-color: rgba(11, 18, 32, 0.92) !important;
+    color: #e8eef7 !important;
+    border-color: rgba(46, 196, 182, 0.55) !important;
+}
+.form-container .cancel:hover {
+    color: #2ec4b6 !important;
+    background-color: #fff !important;
+    border-color: #2ec4b6 !important;
+}
+.form-direct a {
+    color: #2ec4b6 !important;
+}
+.form-container h1 {
+    color: #0b1220;
+}
+
