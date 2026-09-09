@@ -317,14 +317,11 @@ function startCandidateSearch() {
     }, 12500);
 }
 
-// Deep-link into the portfolio (skip intro) — used by case pages "Back to Projects"
-function shouldOpenPortfolioDirectly() {
+// Only case-page "Back to Projects" (?portfolio=1) skips intro.
+// Normal refresh / plain #hash always shows the gate again.
+function cameFromCaseBackLink() {
     var params = new URLSearchParams(window.location.search || "");
-    if (params.get("portfolio") === "1") { return true; }
-    var hash = (window.location.hash || "").toLowerCase();
-    // Section anchors imply the visitor wants the portfolio, not the gate
-    return hash === "#projects" || hash === "#about" || hash === "#coursework" ||
-        hash === "#collaborate" || hash === "#contact" || hash === "#home" || hash === "#skills";
+    return params.get("portfolio") === "1";
 }
 
 function scrollToHashTarget() {
@@ -337,16 +334,33 @@ function scrollToHashTarget() {
     }
 }
 
+// Drop ?portfolio=1 from the URL so a refresh returns to the gate
+function clearPortfolioSkipFlag(keepHash) {
+    try {
+        var path = window.location.pathname || "/";
+        var hash = keepHash ? (window.location.hash || "") : "";
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, "", path + hash);
+        }
+    } catch (err) { /* ignore */ }
+}
+
 // Wire up the intro controls after the page HTML is ready
 document.addEventListener("DOMContentLoaded", function () {
     var searchBtn = document.getElementById("Intro_Search_Button");
     var skipLink = document.getElementById("Intro_Skip_Link");
 
-    // Case-page back links (and other section deep links) skip the intro gate
-    if (shouldOpenPortfolioDirectly()) {
+    // One-shot skip from case pages only
+    if (cameFromCaseBackLink()) {
+        var hash = window.location.hash || "#Projects";
+        clearPortfolioSkipFlag(true);
         skipIntro();
-        // Wait a tick so Portfolio_Main is visible before scrolling
-        setTimeout(scrollToHashTarget, 50);
+        setTimeout(function () {
+            if (!window.location.hash) {
+                window.location.hash = hash;
+            }
+            scrollToHashTarget();
+        }, 50);
         return;
     }
 
