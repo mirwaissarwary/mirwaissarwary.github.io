@@ -317,10 +317,38 @@ function startCandidateSearch() {
     }, 12500);
 }
 
+// Deep-link into the portfolio (skip intro) — used by case pages "Back to Projects"
+function shouldOpenPortfolioDirectly() {
+    var params = new URLSearchParams(window.location.search || "");
+    if (params.get("portfolio") === "1") { return true; }
+    var hash = (window.location.hash || "").toLowerCase();
+    // Section anchors imply the visitor wants the portfolio, not the gate
+    return hash === "#projects" || hash === "#about" || hash === "#coursework" ||
+        hash === "#collaborate" || hash === "#contact" || hash === "#home" || hash === "#skills";
+}
+
+function scrollToHashTarget() {
+    var hash = window.location.hash;
+    if (!hash || hash === "#") { return; }
+    var id = hash.replace(/^#/, "");
+    var el = document.getElementById(id);
+    if (el && typeof el.scrollIntoView === "function") {
+        el.scrollIntoView();
+    }
+}
+
 // Wire up the intro controls after the page HTML is ready
 document.addEventListener("DOMContentLoaded", function () {
     var searchBtn = document.getElementById("Intro_Search_Button");
     var skipLink = document.getElementById("Intro_Skip_Link");
+
+    // Case-page back links (and other section deep links) skip the intro gate
+    if (shouldOpenPortfolioDirectly()) {
+        skipIntro();
+        // Wait a tick so Portfolio_Main is visible before scrolling
+        setTimeout(scrollToHashTarget, 50);
+        return;
+    }
 
     // Start on the gate stage with Earth video paused
     setIntroStage("Gate");
