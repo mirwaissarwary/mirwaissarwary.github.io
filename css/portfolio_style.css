@@ -999,6 +999,7 @@ html {
     #Projects,
     #Collaborate,
     #Skills,
+    #Coursework,
     #Contact,
     .projects-section {
         scroll-margin-top: 110px;
@@ -1202,6 +1203,7 @@ body.Intro_Active {
 .about-card h1,
 .projects-section h1,
 #Collaborate h1,
+.coursework-section > h1,
 .collaborate-card h1 {
     color: var(--qm-teal) !important;
 }
@@ -1652,5 +1654,26 @@ body.Intro_Active {
 }
 @media screen and (max-width: 900px) {
     .skills-section { padding: 2rem 5vw; }
+}
+
+
+
+/*----- Software coursework carousel framing -----*/
+.coursework-section {
+    padding-top: 1.5rem;
+}
+.coursework-section > h1 {
+    text-align: center;
+    color: var(--qm-teal, #2ec4b6) !important;
+    letter-spacing: normal;
+    margin: 0 0 0.5rem;
+}
+.coursework-intro {
+    max-width: 38rem;
+    margin: 0 auto 1.25rem;
+    color: var(--qm-muted, #9aa8bc);
+    letter-spacing: normal;
+    line-height: 1.5;
+    font-size: 0.98rem;
 }
 
