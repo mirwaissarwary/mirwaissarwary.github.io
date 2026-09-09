@@ -70,7 +70,7 @@ document.addEventListener("click", function (event) {
 // INTRO SPLASH — Earth mp4 gate + Search play-through
 // Gate: paused gate-earth.mp4 behind real Search/Skip; plays once on Search.
 // Search: play once (~11–12s) with flashing Searching...
-// Then: Candidate found → zoom.jpg + Mirwais Sarwary found → portfolio.
+// Then: Candidate found + name with Earth video paused → Frame 3 → portfolio.
 // Skip: instant portfolio; cancel timers; stop video.
 // prefers-reduced-motion: no video; short status → portfolio.
 // =============================================
@@ -166,7 +166,8 @@ function showPausedGateVideo() {
 }
 
 // After the Search play-through ends:
-// Candidate found → Mirwais Sarwary (name only) → Frame 3 transition (3s) → portfolio
+// Candidate found → Mirwais Sarwary (name only) with Earth video paused behind
+// → Frame 3 transition (3s) → portfolio
 function afterSearchVideoEnds() {
     if (introFinished) { return; }
     introFinished = true;
@@ -178,20 +179,24 @@ function afterSearchVideoEnds() {
         try {
             video.pause();
         } catch (err) { /* ignore */ }
-        video.style.display = "none";
+        // Keep the last/paused Earth frame visible behind found + name
+        video.style.display = "";
     }
 
-    // Step 1: Candidate found (clean dark stage; status is HTML text)
+    // Step 1: Candidate found (paused Earth video as backdrop)
     setIntroStage("Gate");
     setIntroStatus("Candidate found", false);
 
-    // Step 2: name only
+    // Step 2: name only (same paused video backdrop)
     introLater(function () {
         setIntroStatus("Mirwais Sarwary", false);
 
-        // Step 3: Frame 3 storyboard screen, hold 3 seconds, then portfolio
+        // Step 3: Frame 3 storyboard — hide video so transition image shows
         introLater(function () {
             setIntroStatus("", false);
+            if (video) {
+                video.style.display = "none";
+            }
             setIntroStage("Transition");
             introLater(showPortfolio, 3000);
         }, 1500);
