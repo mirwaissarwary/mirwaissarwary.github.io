@@ -149,9 +149,12 @@
 
 .case-footer {
     margin-top: 2rem;
-    padding-top: 1.25rem;
+    padding: 1.25rem 0 0;
     border-top: 1px solid rgba(46, 196, 182, 0.2);
-    color: var(--qm-muted, #9aa8bc);
+    /* Beat legacy portfolio_style.css `footer { white/blue gradient + green }` */
+    background: transparent !important;
+    background-image: none !important;
+    color: var(--qm-muted, #9aa8bc) !important;
     font-size: 0.95rem;
 }
 

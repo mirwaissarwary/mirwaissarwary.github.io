@@ -186,11 +186,12 @@ img:hover {
     filter: brightness(100%); /* Brings back most of the image's color when hovered over */
 }
 
-/* Styling for footer element */
+/* Styling for footer element — Quiet Medtech (no Matrix neon gradient) */
 footer {
-    padding: 2%; /* This gives the footer padding that is equal to 2% of the width of the element's area */
-    background-image: linear-gradient(to right,white,blue,white, blue, rgb(19, 19, 51));
-    color: green;
+    padding: 2%;
+    background-image: none;
+    background: transparent;
+    color: var(--qm-muted, #9aa8bc);
 }
 
 /*====================
