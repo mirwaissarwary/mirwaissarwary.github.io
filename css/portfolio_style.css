@@ -791,6 +791,27 @@ End of Media Query Section
     letter-spacing: normal;
     margin-bottom: 28px;
 }
+.projects-subhead {
+    color: var(--qm-teal, #2ec4b6);
+    font-size: 1.35rem;
+    margin: 2rem 0 0.4rem;
+    letter-spacing: normal;
+    text-align: center;
+}
+.projects-subintro {
+    color: #9aa8bc;
+    font-size: 1rem;
+    letter-spacing: normal;
+    margin: 0 auto 1.2rem;
+    max-width: 46rem;
+}
+.project-card--device {
+    border-color: #7aa2c8;
+}
+.projects-grid--devices {
+    margin-bottom: 0.5rem;
+}
+
 
 .projects-github {
     margin: 0.4rem 0 1.4rem;
